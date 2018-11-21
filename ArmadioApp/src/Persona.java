@@ -22,4 +22,3 @@ public class Persona {
 		this.dataDiNascita = dataDiNascita;
 	}
 }
-andrea
