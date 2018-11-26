@@ -4,7 +4,7 @@ public class Guardaroba {
 	private Integer numeroVestiti;
 
 	public Integer getNumeroVestiti() {
-		return numeroVestiti;
+		return numeroVestigbti;
 	}
 
 	public void setNumeroVestiti(Integer numeroVestiti) {
