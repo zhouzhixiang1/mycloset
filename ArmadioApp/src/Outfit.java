@@ -16,7 +16,7 @@ public class Outfit {
 	Vestito testa, parteSopra, parteSotto, piedi;
 	
 	@OneToMany(mappedBy = "outfit")
-	List<Vestito> vestitiOutfit;
+	private List<Vestito> vestitiOutfit;
 
 	public int getId() {
 		return id;
