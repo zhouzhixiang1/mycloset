@@ -1,17 +1,12 @@
-<<<<<<< HEAD
 import javax.persistence.Entity;
 import javax.persistence.Id;
-=======
 import java.util.*;
->>>>>>> branch 'master' of https://github.com/zhouzhixiang1/mycloset.git
 
 @Entity
 public class Guardaroba {
 	
-<<<<<<< HEAD
 @Id
 private int id;
-=======
 	private List<Vestito> vestiti;
     
 	private Outfit outfit;
@@ -32,5 +27,4 @@ private int id;
 		this.outfit = outfit;
 	}
 
->>>>>>> branch 'master' of https://github.com/zhouzhixiang1/mycloset.git
 }
