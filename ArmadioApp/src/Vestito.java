@@ -1,10 +1,15 @@
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Vestito {
 	@Id
 	private int idVestito;
+	@ManyToOne
+	private Outfit outfit;
+	@ManyToOne
+	private Guardaroba guardaroba;
 	public int getIdVestito() {
 		return idVestito;
 	}
@@ -23,6 +28,4 @@ public class Vestito {
 	public void setOutfit(Outfit outfit) {
 		this.outfit = outfit;
 	}
-	private Guardaroba guardaroba;
-	private Outfit outfit;
 }
