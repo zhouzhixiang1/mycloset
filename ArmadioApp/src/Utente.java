@@ -1,21 +1,19 @@
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
+@Entity
 public class Utente {
 	
-	private String idUtente;
-	private String userName;
-	private String password;
+	@Id
+	private String email;
 	
-	public String getIdUtente() {
-		return idUtente;
+	private String password;
+	private Guardaroba guardaroba;
+	public String getEmail() {
+		return email;
 	}
-	public void setIdUtente(String idUtente) {
-		this.idUtente = idUtente;
-	}
-	public String getUserName() {
-		return userName;
-	}
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	public String getPassword() {
 		return password;
@@ -23,13 +21,13 @@ public class Utente {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
-	public void creaGuardaroba() {
-		
+	public Guardaroba getGuardaroba() {
+		return guardaroba;
+	}
+	public void setGuardaroba(Guardaroba guardaroba) {
+		this.guardaroba = guardaroba;
 	}
 	
-	public void creaOutfit() {
-		
-	}
-
+	
+	
 }
