@@ -1,5 +1,7 @@
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Utente {
@@ -8,6 +10,7 @@ public class Utente {
 	private String email;
 	
 	private String password;
+	@OneToOne
 	private Guardaroba guardaroba;
 	public String getEmail() {
 		return email;
