@@ -1,16 +1,21 @@
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
 public class Outfit {
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	
-	Vestito testa,parteSopra,parteSotto,piedi;
-	@OneToMany(mappedBy="outfit")
+	Vestito testa, parteSopra, parteSotto, piedi;
+	
+	@OneToMany(mappedBy = "outfit")
 	List<Vestito> vestitiOutfit;
 
 	public int getId() {
