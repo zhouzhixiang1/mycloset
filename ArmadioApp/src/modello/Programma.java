@@ -16,7 +16,7 @@ public class Programma {
 		Guardaroba r = new Guardaroba();
 		Utente u = new Utente();
 		u.setEmail("utente@prova.com");
-		u.setPassword("1234");
+		u.setPassword("12345");
 		u.setAttivo(true);
 		u.setGuardaroba(r);
 		r.setUtente(u);
