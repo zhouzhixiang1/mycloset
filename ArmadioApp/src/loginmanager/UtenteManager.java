@@ -2,7 +2,7 @@ package loginmanager;
 
 import javax.persistence.EntityManager;
 
-import modello.Utente;
+import modello2.Utente;
 import utility.EntityManagerProvider;
 
 public class UtenteManager {

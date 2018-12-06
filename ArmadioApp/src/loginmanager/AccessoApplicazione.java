@@ -4,7 +4,7 @@ package loginmanager;
 import java.util.logging.Logger;
 import javax.persistence.EntityManager;
 
-import modello.Utente;
+import modello2.Utente;
 import utility.EntityManagerProvider;
 
 

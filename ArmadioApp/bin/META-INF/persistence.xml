@@ -10,6 +10,7 @@
 		<class>modello2.TipoOutfit</class>
 		<class>modello2.TipoVestito</class>
 		<class>modello2.Vestito</class>
+		<class>modello2.Utente</class>
 		<properties>
 			<property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
 			<property name="javax.persistence.jdbc.driver" value="org.mariadb.jdbc.Driver"/>

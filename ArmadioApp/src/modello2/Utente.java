@@ -1,4 +1,5 @@
-package modello;
+package modello2;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
@@ -10,7 +11,7 @@ public class Utente {
 	private String email;
 	private String password;
 	private boolean attivo;
-	@OneToOne
+	@OneToOne (cascade=CascadeType.ALL)
 	private Guardaroba guardaroba;
 	public String getEmail() {
 		return email;
