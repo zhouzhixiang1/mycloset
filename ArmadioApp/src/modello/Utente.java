@@ -1,6 +1,6 @@
+package modello;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -8,8 +8,8 @@ public class Utente {
 	
 	@Id
 	private String email;
-	
 	private String password;
+	private boolean attivo;
 	@OneToOne
 	private Guardaroba guardaroba;
 	public String getEmail() {
@@ -29,6 +29,12 @@ public class Utente {
 	}
 	public void setGuardaroba(Guardaroba guardaroba) {
 		this.guardaroba = guardaroba;
+	}
+	public boolean getAttivo() {
+		return attivo;
+	}
+	public void setAttivo(boolean attivo) {
+		this.attivo = attivo;
 	}
 	
 	

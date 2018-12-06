@@ -1,3 +1,4 @@
+package modello;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
