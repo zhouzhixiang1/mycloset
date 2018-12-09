@@ -7,7 +7,8 @@ import org.junit.Test;
 import modello2.Alloggiamento;
 import modello2.Armadio;
 import modello2.Componente;
-import modello2.SpazioVesitito;
+import modello2.Outfit;
+import modello2.SpazioVestito;
 import modello2.TipoOutfit;
 import modello2.TipoVestito;
 import modello2.Vestito;
@@ -74,13 +75,29 @@ public class PopolamentoEntitaTest {
 		to3.addTipoOutfit(to1);
 		to3.addTipoOutfit(to2);
 		
-		SpazioVesitito sv1 = new SpazioVesitito();
+		SpazioVestito sv1 = new SpazioVestito();
 		sv1.setNome("Mutande");
 		sv1.setNumeroSpazi(10);
 		
-		SpazioVesitito sv2 = new SpazioVesitito();
+		SpazioVestito sv2 = new SpazioVestito();
 		sv2.setNome("Magliette");
 		sv2.setNumeroSpazi(5);
+		
+		SpazioVestito sv3 = new SpazioVestito();
+		sv3.setNome("Calzini");
+		sv3.setNumeroSpazi(15);
+		
+		SpazioVestito sv4 = new SpazioVestito();
+		sv4.setNome("Pantaloni");
+		sv4.setNumeroSpazi(10);
+		
+		SpazioVestito sv5 = new SpazioVestito();
+		sv5.setNome("Giacche");
+		sv5.setNumeroSpazi(3);
+		
+		SpazioVestito sv6 = new SpazioVestito();
+		sv6.setNome("Camicie");
+		sv6.setNumeroSpazi(10);
 
 		Alloggiamento a1 = new Alloggiamento();
 		a1.setNome("Scomparto 1");
@@ -90,7 +107,6 @@ public class PopolamentoEntitaTest {
 		Componente c1 = new Componente();
 		c1.setNome("Cassettiera 1");
 		c1.addAlloggiamento(a1);
-		
 		Armadio arm1 = new Armadio();
 		arm1.setNome("Armadio sala");
 		arm1.addComponente(c1);
@@ -100,17 +116,45 @@ public class PopolamentoEntitaTest {
 		
 		Vestito v1 = new Vestito();
 		v1.setNome("Mutande Blu");
-		v1.setTipoVestito(tv1);
-		
+		tv1.addVestito(v1);
 		sv1.addVestito(v1);
 		
 		Vestito v2 = new Vestito();
 		v2.setNome("Maglietta rossa");
-		v2.setTipoVestito(tv2);
-		
+		tv2.addVestito(v2);
 		sv2.addVestito(v2);
 		
+		Vestito v3 = new Vestito();
+		v3.setNome("Calzini neri");
+		tv3.addVestito(v3);
+		
+		Vestito v4 = new Vestito();
+		v4.setNome("Jeans");
+		tv2.addVestito(v4);
+		
+		Vestito v5 = new Vestito();
+		v5.setNome("Giaccona verde");
+		tv5.addVestito(v5);
+		
+		Vestito v6 = new Vestito();
+		v6.setNome("Camicia azzurra");
+		tv6.addVestito(v6);
+		
+		Outfit o = new Outfit();
+		o.setTipoOutfit(to3);
+		
 		em.getTransaction().commit();
+		
+		System.out.println("Esempio outfit:");
+		TipoOutfit tof = o.getTipoOutfit();
+		for(TipoOutfit tos: tof.getTipiOutfit()) {
+			for(TipoVestito tvs: tos.getTipiVestito()) {
+				for(Vestito vs: tvs.getVestiti()) {
+					System.out.println(vs.getNome());
+				}
+			}
+		}
+		
 	}
 
 }

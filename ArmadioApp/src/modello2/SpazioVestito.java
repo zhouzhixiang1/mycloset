@@ -13,13 +13,12 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
-public class SpazioVesitito {
+public class SpazioVestito {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	private String nome;
-	
 	private TipoVestito tipoVestito;
 	private Integer numeroSpazi;
 	

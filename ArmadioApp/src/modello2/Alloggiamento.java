@@ -21,9 +21,9 @@ public class Alloggiamento {
 	private String nome;
 	
 	@OneToMany(mappedBy="alloggiamento", cascade=CascadeType.ALL, fetch=FetchType.LAZY)
-	private List<SpazioVesitito> spaziVestiti;
+	private List<SpazioVestito> spaziVestiti;
 	
-	public void addSpazioVesititi (SpazioVesitito sv) {
+	public void addSpazioVesititi (SpazioVestito sv) {
 		if (this.spaziVestiti == null)
 			this.spaziVestiti = new ArrayList<>();
 		this.spaziVestiti.add(sv);
@@ -49,11 +49,11 @@ public class Alloggiamento {
 		this.nome = nome;
 	}
 
-	public List<SpazioVesitito> getSpaziVestiti() {
+	public List<SpazioVestito> getSpaziVestiti() {
 		return spaziVestiti;
 	}
 
-	public void setSpaziVestiti(List<SpazioVesitito> spaziVestiti) {
+	public void setSpaziVestiti(List<SpazioVestito> spaziVestiti) {
 		this.spaziVestiti = spaziVestiti;
 	}
 

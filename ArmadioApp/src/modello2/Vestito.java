@@ -19,7 +19,9 @@ public class Vestito {
 	private TipoVestito tipoVestito;
 	
 	@ManyToOne(cascade=CascadeType.ALL)
-	private SpazioVesitito spazioVestito;
+	private SpazioVestito spazioVestito;
+	
+	private String tessuto;
 
 	public Integer getId() {
 		return id;
@@ -45,12 +47,20 @@ public class Vestito {
 		this.tipoVestito = tipoVestito;
 	}
 
-	public SpazioVesitito getSpazioVestito() {
+	public SpazioVestito getSpazioVestito() {
 		return spazioVestito;
 	}
 
-	public void setSpazioVestito(SpazioVesitito spazioVestito) {
+	public void setSpazioVestito(SpazioVestito spazioVestito) {
 		this.spazioVestito = spazioVestito;
+	}
+
+	public String getTessuto() {
+		return tessuto;
+	}
+
+	public void setTessuto(String tessuto) {
+		this.tessuto = tessuto;
 	}
 	
 	
