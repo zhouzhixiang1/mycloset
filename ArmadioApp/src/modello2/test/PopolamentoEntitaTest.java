@@ -12,6 +12,7 @@ import modello2.SpazioVestito;
 import modello2.TipoOutfit;
 import modello2.TipoVestito;
 import modello2.Vestito;
+import utility.CreaOutfit;
 import utility.EntityManagerProvider;
 
 public class PopolamentoEntitaTest {
@@ -128,9 +129,13 @@ public class PopolamentoEntitaTest {
 		v3.setNome("Calzini neri");
 		tv3.addVestito(v3);
 		
+		Vestito v32 = new Vestito();
+		v32.setNome("Calzini blu");
+		tv3.addVestito(v32);
+		
 		Vestito v4 = new Vestito();
 		v4.setNome("Jeans");
-		tv2.addVestito(v4);
+		tv4.addVestito(v4);
 		
 		Vestito v5 = new Vestito();
 		v5.setNome("Giaccona verde");
@@ -146,15 +151,7 @@ public class PopolamentoEntitaTest {
 		em.getTransaction().commit();
 		
 		System.out.println("Esempio outfit:");
-		TipoOutfit tof = o.getTipoOutfit();
-		for(TipoOutfit tos: tof.getTipiOutfit()) {
-			for(TipoVestito tvs: tos.getTipiVestito()) {
-				for(Vestito vs: tvs.getVestiti()) {
-					System.out.println(vs.getNome());
-				}
-			}
-		}
-		
+		CreaOutfit.creaOutfit(o);
 	}
 
 }
