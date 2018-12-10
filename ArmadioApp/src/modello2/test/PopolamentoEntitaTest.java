@@ -147,11 +147,16 @@ public class PopolamentoEntitaTest {
 		
 		Outfit o = new Outfit();
 		o.setTipoOutfit(to3);
-		
-		em.getTransaction().commit();
+		o.setNome("COMPLETONE");
 		
 		System.out.println("Esempio outfit:");
 		CreaOutfit.creaOutfit(o);
+		em.persist(o);
+	
+		em.getTransaction().commit();
+		
+		LogInTest.test();
+		
 	}
 
 }

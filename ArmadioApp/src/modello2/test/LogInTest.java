@@ -11,7 +11,7 @@ import utility.EntityManagerProvider;
 public class LogInTest {
 
 	@Test
-	public void test() {
+	public static void test() {
 		EntityManager em = EntityManagerProvider.getEntityManager();
 		em.getTransaction().begin();
 		
