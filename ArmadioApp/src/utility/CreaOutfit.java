@@ -16,6 +16,7 @@ public class CreaOutfit {
 				Random rand = new Random();
 				int n = rand.nextInt(tvs.getVestiti().size());
 				Vestito vs = tvs.getVestiti().get(n);
+				o.addVestito(vs);
 				System.out.println(vs.getNome());
 			}
 		}

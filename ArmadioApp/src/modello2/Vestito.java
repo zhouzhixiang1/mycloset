@@ -1,10 +1,14 @@
 package modello2;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -18,8 +22,17 @@ public class Vestito {
 	@ManyToOne(cascade=CascadeType.ALL)
 	private TipoVestito tipoVestito;
 	
+	@ManyToMany(cascade=CascadeType.ALL)
+	private List<Outfit> outfit;
+		
 	@ManyToOne(cascade=CascadeType.ALL)
 	private SpazioVestito spazioVestito;
+	
+	public void addOutfit(Outfit o) {
+		if(this.outfit == null)
+			outfit = new ArrayList<>();
+		this.outfit.add(o);
+	}
 	
 	private String tessuto;
 
@@ -62,7 +75,12 @@ public class Vestito {
 	public void setTessuto(String tessuto) {
 		this.tessuto = tessuto;
 	}
-	
-	
 
+	public List<Outfit> getOutfit() {
+		return outfit;
+	}
+
+	public void setOutfit(List<Outfit> outfit) {
+		this.outfit = outfit;
+	}
 }

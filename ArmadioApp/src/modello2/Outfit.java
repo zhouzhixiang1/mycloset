@@ -9,8 +9,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToMany;
 
 @Entity
 public class Outfit {
@@ -20,21 +19,18 @@ public class Outfit {
 	private Integer id;
 	private String nome;
 	
+	@ManyToMany(mappedBy="outfit", cascade=CascadeType.ALL, fetch=FetchType.LAZY)
+	private List<Vestito> vestiti;
+		
 	private TipoOutfit tipoOutfit;
 	
-	@OneToMany(mappedBy="outfitPrincipale", cascade=CascadeType.ALL, fetch=FetchType.LAZY)
-	private List<Outfit> outfit;
-	
-	public void addOutfit (Outfit o) {
-		if (this.outfit == null)
-			this.outfit = new ArrayList<>();
-		this.outfit.add(o);
-		o.setOutfitPrincipale(this);
+	public void addVestito(Vestito v) {
+		if(this.vestiti == null)
+			vestiti = new ArrayList<>();
+		this.vestiti.add(v);
+		v.addOutfit(this);
 	}
-	
-	@ManyToOne(cascade=CascadeType.ALL)
-	private Outfit outfitPrincipale;
-	
+		
 	public Integer getId() {
 		return id;
 	}
@@ -53,19 +49,10 @@ public class Outfit {
 	public void setTipoOutfit(TipoOutfit tipoOutfit) {
 		this.tipoOutfit = tipoOutfit;
 	}
-	public List<Outfit> getOutfit() {
-		return outfit;
+	public List<Vestito> getVestiti() {
+		return vestiti;
 	}
-	public void setOutfit(List<Outfit> outfit) {
-		this.outfit = outfit;
+	public void setVestit(List<Vestito> vestiti) {
+		this.vestiti = vestiti;
 	}
-	public Outfit getOutfitPrincipale() {
-		return outfitPrincipale;
-	}
-	public void setOutfitPrincipale(Outfit outfitPrincipale) {
-		this.outfitPrincipale = outfitPrincipale;
-	}
-	
-	
-
 }
