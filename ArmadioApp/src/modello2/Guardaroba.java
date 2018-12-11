@@ -30,8 +30,4 @@ public class Guardaroba {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-
-	
-	
-
 }

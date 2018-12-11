@@ -18,6 +18,7 @@ public class Vestito {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	private String nome;
+	private boolean disponibile;
 	
 	@ManyToOne(cascade=CascadeType.ALL)
 	private TipoVestito tipoVestito;
@@ -82,5 +83,13 @@ public class Vestito {
 
 	public void setOutfit(List<Outfit> outfit) {
 		this.outfit = outfit;
+	}
+
+	public boolean isDisponibile() {
+		return disponibile;
+	}
+
+	public void setDisponibile(boolean disponibile) {
+		this.disponibile = disponibile;
 	}
 }

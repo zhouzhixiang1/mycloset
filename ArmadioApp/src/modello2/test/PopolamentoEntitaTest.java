@@ -145,15 +145,20 @@ public class PopolamentoEntitaTest {
 		v6.setNome("Camicia azzurra");
 		tv6.addVestito(v6);
 		
+		Outfit o1 = new Outfit();
+		o1.setNome("invernale1");
+		o1.setTipoOutfit(to3);
+		
+		em.persist(o1);
+		
 		Outfit o = new Outfit();
-		o.setTipoOutfit(to3);
-		o.setNome("COMPLETONE");
+		o.setNome("InvernaleFeriale");
+		o.addOutfit(o1);
 		
 		System.out.println("Esempio outfit:");
-		CreaOutfit.creaOutfit(o);
-		em.persist(o);
-	
 		em.getTransaction().commit();
+		CreaOutfit.creaOutfitSerio();
+		
 		
 		LogInTest.test();
 		
