@@ -1,6 +1,5 @@
 package utility;
 
-import java.util.List;
 import java.util.Random;
 
 import javax.persistence.EntityManager;
@@ -101,14 +100,9 @@ public class CreaOutfit {
 	private static void creaOutfitInvernaleFeriale() {
 		EntityManager em = EntityManagerProvider.getEntityManager();
 		
-		List<Outfit> lo = em.createQuery("select o from Outfit o", Outfit.class).getResultList();
+		Outfit o = em.createQuery("select o from Outfit o where o.nome=:'InvernaleFeriale'", Outfit.class).getSingleResult();
 		em.getTransaction().begin();
-		for(Outfit o: lo) {
-			if (o.getNome().equals("InvernaleFeriale")) {
-				creaOutfit(o);
-				break;
-			}
-		}
+		creaOutfit(o);
 		em.getTransaction().commit();
 
 	}
