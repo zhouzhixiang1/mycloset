@@ -101,9 +101,14 @@ public class CreaOutfit {
 	private static void creaOutfitInvernaleFeriale() {
 		EntityManager em = EntityManagerProvider.getEntityManager();
 		
-		Outfit o = em.createQuery("select o from Outfit o where o.outfit.nome=:'InvernaleFeriale'", Outfit.class).getSingleResult();
+		List<Outfit> lo = em.createQuery("select o from Outfit o", Outfit.class).getResultList();
 		em.getTransaction().begin();
-		creaOutfit(o);
+		for(Outfit o: lo) {
+			if (o.getNome().equals("InvernaleFeriale")) {
+				creaOutfit(o);
+				break;
+			}
+		}
 		em.getTransaction().commit();
 
 	}

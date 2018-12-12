@@ -156,11 +156,9 @@ public class PopolamentoEntitaTest {
 		o.addOutfit(o1);
 		
 		System.out.println("Esempio outfit:");
+		LogInTest.test();
 		em.getTransaction().commit();
 		CreaOutfit.creaOutfitSerio();
-		
-		
-		LogInTest.test();
 		
 	}
 
