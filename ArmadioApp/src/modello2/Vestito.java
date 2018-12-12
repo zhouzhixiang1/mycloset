@@ -22,18 +22,9 @@ public class Vestito {
 	
 	@ManyToOne(cascade=CascadeType.ALL)
 	private TipoVestito tipoVestito;
-	
-	@ManyToMany(cascade=CascadeType.ALL)
-	private List<Outfit> outfit;
 		
 	@ManyToOne(cascade=CascadeType.ALL)
 	private SpazioVestito spazioVestito;
-	
-	public void addOutfit(Outfit o) {
-		if(this.outfit == null)
-			outfit = new ArrayList<>();
-		this.outfit.add(o);
-	}
 	
 	private String tessuto;
 
@@ -77,13 +68,6 @@ public class Vestito {
 		this.tessuto = tessuto;
 	}
 
-	public List<Outfit> getOutfit() {
-		return outfit;
-	}
-
-	public void setOutfit(List<Outfit> outfit) {
-		this.outfit = outfit;
-	}
 
 	public boolean isDisponibile() {
 		return disponibile;

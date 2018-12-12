@@ -108,6 +108,7 @@ public class PopolamentoEntitaTest {
 		Componente c1 = new Componente();
 		c1.setNome("Cassettiera 1");
 		c1.addAlloggiamento(a1);
+		
 		Armadio arm1 = new Armadio();
 		arm1.setNome("Armadio sala");
 		arm1.addComponente(c1);
@@ -124,6 +125,10 @@ public class PopolamentoEntitaTest {
 		v2.setNome("Maglietta rossa");
 		tv2.addVestito(v2);
 		sv2.addVestito(v2);
+		
+		Vestito v22 = new Vestito();
+		v22.setNome("Maglietta brutta");
+		tv2.addVestito(v22);
 		
 		Vestito v3 = new Vestito();
 		v3.setNome("Calzini neri");
@@ -150,13 +155,12 @@ public class PopolamentoEntitaTest {
 		o1.setTipoOutfit(to3);
 		
 		em.persist(o1);
-		
+				
 		Outfit o = new Outfit();
 		o.setNome("InvernaleFeriale");
 		o.addOutfit(o1);
-		
+				
 		System.out.println("Esempio outfit:");
-		LogInTest.test();
 		em.getTransaction().commit();
 		CreaOutfit.creaOutfitSerio();
 		

@@ -24,28 +24,20 @@ public class Outfit {
 	private boolean feriale;
 	private boolean outdoor;
 	private String temperatura;
+	private List<List<Vestito>> vestiti = new ArrayList<>();
 	
 	@OneToMany(mappedBy="outfitPrincipale", cascade=CascadeType.ALL, fetch=FetchType.LAZY)
 	private List<Outfit> outfit;
 	
 	@ManyToOne(cascade=CascadeType.ALL)
 	private Outfit outfitPrincipale;
-	
-	@ManyToMany(mappedBy="outfit", cascade=CascadeType.ALL, fetch=FetchType.LAZY)
-	private List<Vestito> vestiti;
+
 	
 	public void addOutfit (Outfit o) {
 		if (this.outfit == null)
 			this.outfit = new ArrayList<>();
 		this.outfit.add(o);
 		o.setOutfitPrincipale(this);
-	}
-		
-	public void addVestito(Vestito v) {
-		if(this.vestiti == null)
-			vestiti = new ArrayList<>();
-		this.vestiti.add(v);
-		v.addOutfit(this);
 	}
 		
 	public Integer getId() {
@@ -65,12 +57,6 @@ public class Outfit {
 	}
 	public void setTipoOutfit(TipoOutfit tipoOutfit) {
 		this.tipoOutfit = tipoOutfit;
-	}
-	public List<Vestito> getVestiti() {
-		return vestiti;
-	}
-	public void setVestit(List<Vestito> vestiti) {
-		this.vestiti = vestiti;
 	}
 
 	public boolean isFeriale() {
@@ -111,5 +97,13 @@ public class Outfit {
 
 	public void setOutfitPrincipale(Outfit outfitPrincipale) {
 		this.outfitPrincipale = outfitPrincipale;
+	}
+
+	public List<List<Vestito>> getVestiti() {
+		return vestiti;
+	}
+
+	public void setVestiti(List<List<Vestito>> vestiti) {
+		this.vestiti = vestiti;
 	}
 }

@@ -1,5 +1,9 @@
 package utility;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
 import java.util.Random;
 
 import javax.persistence.EntityManager;
@@ -15,14 +19,19 @@ public class CreaOutfit {
 	public static void creaOutfit(Outfit o) {
 		for(Outfit os: o.getOutfit()) {
 			if(os.getNome().equals("invernale1")) {
+				
+				int p = os.getVestiti().size();
+				
+				os.getVestiti().add(new ArrayList<>());
 				TipoOutfit tof = os.getTipoOutfit();
 				for(TipoOutfit tos: tof.getTipiOutfit()) {
 					for(TipoVestito tvs: tos.getTipiVestito()) {
 						Random rand = new Random();
 						int n = rand.nextInt(tvs.getVestiti().size());
 						Vestito vs = tvs.getVestiti().get(n);
-						os.addVestito(vs);
-						System.out.println(vs.getNome());
+						List<Vestito> vest = os.getVestiti().get(p);
+						vest.add(vs);
+						System.out.println(vest.get(0));
 					}
 				}
 			}
@@ -96,10 +105,9 @@ public class CreaOutfit {
 		// TODO Auto-generated method stub
 		
 	}
-
+	
 	private static void creaOutfitInvernaleFeriale() {
 		EntityManager em = EntityManagerProvider.getEntityManager();
-		
 		Outfit o = em.createQuery("select o from Outfit o where o.nome=:'InvernaleFeriale'", Outfit.class).getSingleResult();
 		em.getTransaction().begin();
 		creaOutfit(o);
