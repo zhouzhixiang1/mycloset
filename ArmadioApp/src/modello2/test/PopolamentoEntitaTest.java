@@ -12,7 +12,6 @@ import modello2.SpazioVestito;
 import modello2.TipoOutfit;
 import modello2.TipoVestito;
 import modello2.Vestito;
-import utility.CreaOutfit;
 import utility.EntityManagerProvider;
 
 public class PopolamentoEntitaTest {
