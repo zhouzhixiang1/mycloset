@@ -30,8 +30,13 @@ public class CreazioneOutfit {
 						for (TipoVestito tp: to.getTipiVestito()) {
 							//AGGIUNGERE CONDIZIONI SCELTA VESTITO (sostituito con Random)
 							Random r = new Random();
-							int n = r.nextInt(tp.getVestiti().size());
-							System.out.println(tp.getVestiti().get(n).getNome());
+							for(Vestito v: tp.getVestiti()) {
+								if (v.isDisponibile()) {
+									System.out.println(v.getNome());
+									break;
+								}
+							}
+						
 						}
 					}
 				}

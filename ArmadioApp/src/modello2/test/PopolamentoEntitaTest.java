@@ -118,36 +118,45 @@ public class PopolamentoEntitaTest {
 		
 		Vestito v1 = new Vestito();
 		v1.setNome("Mutande Blu");
+		v1.setDisponibile(true);
 		tv1.addVestito(v1);
 		sv1.addVestito(v1);
 		
+		
 		Vestito v2 = new Vestito();
 		v2.setNome("Maglietta rossa");
+		v2.setDisponibile(true);
 		tv2.addVestito(v2);
 		sv2.addVestito(v2);
 		
 		Vestito v22 = new Vestito();
 		v22.setNome("Maglietta brutta");
+		v22.setDisponibile(false);
 		tv2.addVestito(v22);
 		
 		Vestito v3 = new Vestito();
 		v3.setNome("Calzini neri");
+		v3.setDisponibile(false);
 		tv3.addVestito(v3);
 		
 		Vestito v32 = new Vestito();
 		v32.setNome("Calzini blu");
+		v32.setDisponibile(true);
 		tv3.addVestito(v32);
 		
 		Vestito v4 = new Vestito();
 		v4.setNome("Jeans");
+		v4.setDisponibile(true);
 		tv4.addVestito(v4);
 		
 		Vestito v5 = new Vestito();
 		v5.setNome("Giaccona verde");
+		v5.setDisponibile(true);
 		tv5.addVestito(v5);
 		
 		Vestito v6 = new Vestito();
 		v6.setNome("Camicia azzurra");
+		v6.setDisponibile(true);
 		tv6.addVestito(v6);
 		
 		Outfit o1 = new Outfit();
