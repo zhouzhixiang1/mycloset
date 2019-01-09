@@ -14,9 +14,8 @@ public class EntityManagerTest {
 	@Test
 	public void test() {
 		EntityManagerProvider.getEntityManager();
-		String stagione = TrovaStagione.stagione(Variabili.mese);
 		
-		CreazioneOutfit.creaOutfit(stagione, Variabili.feriale);
+		CreazioneOutfit.creaOutfit();
 		System.out.print("CIAO");
 	}
 

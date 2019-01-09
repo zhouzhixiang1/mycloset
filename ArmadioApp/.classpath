@@ -6,13 +6,12 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry excluding="modello/" kind="src" path="src"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/EclipseLink 2.5.2">
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry kind="lib" path="C:/Users/User/Desktop/mariadb-tx-3.0-10.3.10-windows/mariadb-java-client-2.3.0.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/ECLIPSE_LINK">
 		<attributes>
-			<attribute name="annotationpath" value="C:/Users/Luca/Desktop/eclipselink/eclipselink-javadocs.zip"/>
 			<attribute name="owner.project.facets" value="jpt.jpa"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
-	<classpathentry kind="lib" path="C:/Users/User/Desktop/mariadb-tx-3.0-10.3.10-windows/mariadb-java-client-2.3.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

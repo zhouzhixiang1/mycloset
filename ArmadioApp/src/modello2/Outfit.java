@@ -24,7 +24,6 @@ public class Outfit {
 	private boolean feriale;
 	private boolean outdoor;
 	private String temperatura;
-	private List<List<Vestito>> vestiti = new ArrayList<>();
 	
 	@OneToMany(mappedBy="outfitPrincipale", cascade=CascadeType.ALL, fetch=FetchType.LAZY)
 	private List<Outfit> outfit;
@@ -97,13 +96,5 @@ public class Outfit {
 
 	public void setOutfitPrincipale(Outfit outfitPrincipale) {
 		this.outfitPrincipale = outfitPrincipale;
-	}
-
-	public List<List<Vestito>> getVestiti() {
-		return vestiti;
-	}
-
-	public void setVestiti(List<List<Vestito>> vestiti) {
-		this.vestiti = vestiti;
 	}
 }
