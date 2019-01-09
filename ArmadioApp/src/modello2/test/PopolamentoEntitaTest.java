@@ -12,6 +12,7 @@ import modello2.SpazioVestito;
 import modello2.TipoOutfit;
 import modello2.TipoVestito;
 import modello2.Vestito;
+import utility.CreazioneOutfit;
 import utility.EntityManagerProvider;
 
 public class PopolamentoEntitaTest {
@@ -161,7 +162,7 @@ public class PopolamentoEntitaTest {
 				
 		System.out.println("Esempio outfit:");
 		em.getTransaction().commit();
-		CreaOutfit.creaOutfitSerio();
+		CreazioneOutfit.creaOutfit();
 		
 	}
 
