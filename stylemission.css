@@ -1,0 +1,13 @@
+.banner{background: white; height: 50%;}
+.banner__image{width: 30%; float: left;height: 100%;background-image: url("mission.PNG");background-size: cover;-o-background-size:cover;-moz-background-size: cover;background-position: center center;}
+.banner__copy{width:70%; float: left;height: 100%;display: table;}
+.banner__copy__text{display: table-cell; vertical-align: middle;padding: 30px;}
+.banner__copy__text h1{font-size: 36px;margin-bottom: 0;}
+
+
+@media(max-width: 767px){
+    .banner{height: 100%;}
+    .banner__image{width: 100%;height: 50%;}
+    .banner__copy{width: 100%;height: 50%;}
+
+}
