@@ -1,0 +1,33 @@
+/*---------------brand--------------*/
+body{ margin:0; padding:0; background-color:white;}
+
+.header{position: relative; width:100%; top:0px;}
+.sub-header{position:relative; width:1000px; height:100px; margin:0 auto;}
+.sub-header .left-menu{float:left;position:left; margin-left:0px;}
+.sub-header .center-menu{float:none; position:absolute; left:50%; transform:translatex(-50%)translateY(-50%); text-decoration:none;top:50%;}
+.sub-header .right-menu{float: right;position:right; margin-right:0px;}
+.sub-header ul li{list-style:none; min-width:100px; line-height:100px;text-align:center;}
+.sub-header ul li a{font-family:"Roboto Condensed", sans-serif; letter-spacing:2px; text-decoration:none;color:black; font-size:22px;}
+	
+.lista__menu{display: inline-block;}
+
+*{margin:0;padding:0;font-family: sans-serif;}
+.team-section{text-align: center;background:gray;padding: 60px;}
+.team-section{text-transform: uppercase;margin-bottom: 60px;color: white;font-size: 40px;}
+.border{display:block;margin:auto;width:160px;height: 3px;background:#3498db;margin-bottom: 40px;}
+.ps{margin-bottom: 40px;}
+.ps a{display: inline-block;margin: 0 30px;width: 160px;height: 160px;overflow: hidden;border-radius: 50%;}
+.ps a img{width: 100%;filter: grayscale(100%);transition: 0.4s all;}
+.ps a:hover > img{filter: none;}
+.section{width: 600px;margin: auto;font-size: 20px;color: white;text-align: justify;height: 0;overflow: hidden;}
+.section:target{height: auto;}
+.name{display: block;margin-bottom: 30px;text-align: center;text-transform: uppercase;font-size: 22px;}
+
+.nav{background-color: darkslategray; height:200px; width: 100%; position: relative;}
+.nav ul{list-style: none;  padding: 15px; width: 100%; max-width: 13100px;}
+.nav ul li{position: relative; float: left; width: 33.3%; text-align: center; padding-bottom: 15px; padding-top: 3px;}
+.nav ul li li{position: relative; float:none; width: 100%; border: none;}
+.nav ul ul a{text-decoration: none; color: white; padding: 15px 25px;}
+	
+	
+.copyright{padding:30px;position: relative;left: 0;bottom: 0;width: 100%;background-color: slategray;color: white;text-align: center;}
