@@ -5,5 +5,9 @@
     <color name="colorAccent">#B11050</color>
     <color name="silver">#969696</color>
     <color name="green">#007938</color>
+    <color name="green_strong">#003a1b</color>
     <color name="black">#000000</color>
+    <color name="purple">#934d88</color>
+    <color name="purple_lite">#d6b8c8</color>
+    <color name="purple_strong">#4b2E68</color>
 </resources>

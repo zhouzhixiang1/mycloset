@@ -1,6 +1,9 @@
 package com.example.fragmentprova;
 
 import android.content.res.ColorStateList;
+import android.content.res.Resources;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -8,6 +11,7 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.view.Window;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -16,8 +20,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        /*
+        Fragment fragment = new FragmentOne();
+        getSupportFragmentManager().beginTransaction().add(R.id.container, fragment).commit();*/
 
-        final BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.navigation);
+        final BottomNavigationView bottomNavigationView = findViewById(R.id.navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -25,7 +32,6 @@ public class MainActivity extends AppCompatActivity {
 
                 switch (item.getItemId()) {
                     case R.id.navigation_home:
-                        bottomNavigationView.setItemTextColor(ColorStateList.valueOf(getColor(R.color.green)));
                         selectedFragment = new FragmentOne();
                         break;
                     case R.id.navigation_dashboard:

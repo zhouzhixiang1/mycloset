@@ -12,7 +12,7 @@
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="90"
+        android:layout_weight="91"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -63,13 +63,14 @@
         android:id="@+id/navigation"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="10"
+        android:layout_weight="9"
         android:layout_gravity="center"
         android:background="?android:attr/windowBackground"
         app:labelVisibilityMode="labeled"
         app:itemBackground="@color/silver"
+        app:itemIconTint="@color/nav_item_colors"
+        app:itemTextColor="@color/nav_item_colors"
         app:itemIconSize="30dp"
-        app:itemTextColor="@color/black"
         app:menu="@menu/navigator"/>
 
 
