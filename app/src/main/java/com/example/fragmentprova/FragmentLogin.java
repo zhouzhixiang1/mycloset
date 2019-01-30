@@ -9,14 +9,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 
 public class FragmentLogin extends Fragment {
 
     EditText email;
     EditText password;
 
-    Button btnLogin;
-    Button btnRegistrati;
+    ImageButton btnLogin;
+    ImageButton btnRegistrati;
 
     @Nullable
     @Override
@@ -26,8 +27,8 @@ public class FragmentLogin extends Fragment {
         email = view.findViewById(R.id.email);
         password = view.findViewById(R.id.password);
 
-        btnLogin = view.findViewById(R.id.login);
-        btnRegistrati = view.findViewById(R.id.registrati);
+        btnLogin = view.findViewById(R.id.btnLogin);
+        btnRegistrati = view.findViewById(R.id.btnRegister);
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override

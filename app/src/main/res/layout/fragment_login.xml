@@ -1,54 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/design_default_color_primary">
+    android:layout_height="match_parent">
 
     <EditText
         android:id="@+id/email"
-        android:layout_width="wrap_content"
+        android:layout_width="255dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="54dp"
+        android:layout_marginTop="76dp"
         android:ems="10"
         android:hint="e-mail"
-        android:inputType="textEmailAddress"
-        app:layout_constraintBottom_toTopOf="@+id/password"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:inputType="textEmailAddress" />
 
     <EditText
         android:id="@+id/password"
-        android:layout_width="wrap_content"
+        android:layout_width="253dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="252dp"
+        android:layout_alignStart="@+id/email"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="122dp"
         android:ems="10"
         android:hint="password"
-        android:inputType="textPassword"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/email" />
+        android:inputType="textPassword" />
 
-    <Button
-        android:id="@+id/login"
+    <ImageButton
+        android:id="@+id/btnLogin"
+        android:layout_width="133dp"
+        android:layout_height="43dp"
+        android:layout_alignStart="@+id/email"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="243dp"
+        android:background="@drawable/login"
+        android:clickable="true" />
+
+    <ImageButton
+        android:id="@+id/imageButton4"
+        android:layout_width="134dp"
+        android:layout_height="38dp"
+        android:layout_alignStart="@id/email"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="186dp"
+        android:background="@drawable/remember_me" />
+
+    <CheckBox
+        android:id="@+id/checkBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="26dp"
-        android:layout_marginEnd="10dp"
-        android:text="login"
-        app:layout_constraintEnd_toStartOf="@+id/registrati"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password" />
+        android:layout_alignStart="@+id/email"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="139dp"
+        android:layout_marginTop="190dp" />
 
-    <Button
-        android:id="@+id/registrati"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="27dp"
-        android:text="sign up"
-        app:layout_constraintBaseline_toBaselineOf="@+id/login"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/login" />
+    <ImageButton
+        android:id="@+id/btnPassRecovery"
+        android:layout_width="281dp"
+        android:layout_height="40dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="38dp"
+        android:layout_marginBottom="75dp"
+        android:background="@drawable/password_recovery" />
 
-</android.support.constraint.ConstraintLayout>
+    <ImageButton
+        android:id="@+id/btnRegister"
+        android:layout_width="281dp"
+        android:layout_height="40dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="38dp"
+        android:layout_marginBottom="19dp"
+        android:background="@drawable/register" />
+
+</RelativeLayout>

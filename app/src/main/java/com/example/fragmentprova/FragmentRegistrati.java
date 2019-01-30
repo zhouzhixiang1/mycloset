@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 
 public class FragmentRegistrati extends Fragment {
 
@@ -16,18 +17,18 @@ public class FragmentRegistrati extends Fragment {
     EditText password;
     EditText repassword;
 
-    Button btnRegistrati;
+    ImageButton btnRegistrati;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_registrati, container, false);
 
-        email = view.findViewById(R.id.remail);
-        password = view.findViewById(R.id.rpassword);
+        email = view.findViewById(R.id.rEmail);
+        password = view.findViewById(R.id.rPassword);
         repassword = view.findViewById(R.id.repassword);
 
-        btnRegistrati = view.findViewById(R.id.rregistrati);
+        btnRegistrati = view.findViewById(R.id.btnRRegister);
 
         btnRegistrati.setOnClickListener(new View.OnClickListener() {
             @Override
