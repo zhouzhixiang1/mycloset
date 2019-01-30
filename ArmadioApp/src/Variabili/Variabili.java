@@ -1,4 +1,4 @@
-package variabiliApp;
+package Variabili;
 
 import utility.TrovaStagione;
 
@@ -6,8 +6,7 @@ public class Variabili {
 	
 	public static boolean feriale = true;
 	public static int mese = 12;
-	public static int gradi;
-	public static String temperatura;
+	public static Integer temperatura = 0;
 
 	
 	public boolean isFeriale() {
@@ -22,17 +21,11 @@ public class Variabili {
 	public void setMese(int mese) {
 		this.mese = mese;
 	}
-	public String getTemperatura() {
+	public Integer getTemperatura() {
 		return temperatura;
 	}
-	public void setTemperatura(String temperatura) {
+	public void setTemperatura(Integer temperatura) {
 		this.temperatura = temperatura;
-	}
-	public int getGradi() {
-		return gradi;
-	}
-	public void setGradi(int gradi) {
-		this.gradi = gradi;
 	}
 
 }

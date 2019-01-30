@@ -9,7 +9,6 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
@@ -23,14 +22,24 @@ public class Outfit {
 	private TipoOutfit tipoOutfit;
 	private boolean feriale;
 	private boolean outdoor;
-	private String temperatura;
+	private Integer temperatura;
+	private Integer temperaturaMassima;
 	
 	@OneToMany(mappedBy="outfitPrincipale", cascade=CascadeType.ALL, fetch=FetchType.LAZY)
 	private List<Outfit> outfit;
 	
 	@ManyToOne(cascade=CascadeType.ALL)
 	private Outfit outfitPrincipale;
-
+	
+	@OneToMany(mappedBy="outfitCollegato", cascade=CascadeType.ALL, fetch=FetchType.LAZY)
+	private List<OutfitFatto> outfitFatti;
+	
+	public void addOutfitFatto(OutfitFatto of) {
+		if(this.outfitFatti == null)
+			this.outfitFatti = new ArrayList<>();
+		this.outfitFatti.add(of);
+		of.setOutfitCollegato(this);
+	}
 	
 	public void addOutfit (Outfit o) {
 		if (this.outfit == null)
@@ -74,11 +83,11 @@ public class Outfit {
 		this.outdoor = outdoor;
 	}
 
-	public String getTemperatura() {
+	public Integer getTemperatura() {
 		return temperatura;
 	}
 
-	public void setTemperatura(String temperatura) {
+	public void setTemperatura(Integer temperatura) {
 		this.temperatura = temperatura;
 	}
 
@@ -96,5 +105,21 @@ public class Outfit {
 
 	public void setOutfitPrincipale(Outfit outfitPrincipale) {
 		this.outfitPrincipale = outfitPrincipale;
+	}
+
+	public Integer getTemperaturaMassima() {
+		return temperaturaMassima;
+	}
+
+	public void setTemperaturaMassima(Integer temperaturaMassima) {
+		this.temperaturaMassima = temperaturaMassima;
+	}
+
+	public List<OutfitFatto> getOutfitFatti() {
+		return outfitFatti;
+	}
+
+	public void setOutfitFatti(List<OutfitFatto> outfitFatti) {
+		this.outfitFatti = outfitFatti;
 	}
 }
