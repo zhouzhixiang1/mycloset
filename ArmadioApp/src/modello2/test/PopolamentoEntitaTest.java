@@ -65,7 +65,6 @@ public class PopolamentoEntitaTest {
 		
 		TipoOutfit to2 = new TipoOutfit();
 		to2.setNome("Sopra");
-		to2.addTipoVestito(tv4);
 		to2.addTipoVestito(tv5);
 		to2.addTipoVestito(tv6);
 		
@@ -153,19 +152,25 @@ public class PopolamentoEntitaTest {
 		v4.setColore("grigio");
 		v4.setNome("Jeans");
 		v4.setDisponibile(true);
-		tv4.addVestito(v4);
+		tv6.addVestito(v4);
 		
 		Vestito v5 = new Vestito();
 		v5.setColore("verde");
 		v5.setNome("Giaccona verde");
 		v5.setDisponibile(true);
-		tv5.addVestito(v5);
+		tv4.addVestito(v4);
+		
+		Vestito v7 = new Vestito();
+		v7.setColore("grigio");
+		v7.setNome("Camicia grigia");
+		v7.setDisponibile(true);
+		tv5.addVestito(v7);
 		
 		Vestito v6 = new Vestito();
 		v6.setColore("azzurro");
 		v6.setNome("Camicia azzurra");
 		v6.setDisponibile(true);
-		tv6.addVestito(v6);
+		tv5.addVestito(v6);
 		
 		Outfit o1 = new Outfit();
 		o1.setNome("invernale1");

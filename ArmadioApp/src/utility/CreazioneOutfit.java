@@ -22,6 +22,7 @@ public class CreazioneOutfit {
 		String stagione = TrovaStagione.stagione(Variabili.mese);
 		Boolean feriale = Variabili.feriale;
 		int temperatura = Variabili.temperatura;
+		String[] colore = {"grigio","nero","verde","giallo", "bianco", "blu", "rosso"};
 		
 		if(feriale) {
 			String nome = stagione+"Feriale";
@@ -59,15 +60,49 @@ public class CreazioneOutfit {
 						TipoOutfit top = os.getTipoOutfit();
 						OutfitFatto of = new OutfitFatto();
 						for(TipoOutfit to: top.getTipiOutfit()) {
+							int conta = 0;
+							ArrayList<String> colori = new ArrayList<>();
+							int pezzo = 0;
+							boolean fatto = false;
+							ArrayList<Vestito> lista_tipo = new ArrayList<Vestito>();
+							int i = 0;
+							boolean ocazz = false;
+							while(fatto == false) {
 							for (TipoVestito tp: to.getTipiVestito()) {
-								//AGGIUNGERE CONDIZIONI SCELTA VESTITO
-								for(Vestito v: tp.getVestiti()) {
-									if (v.isDisponibile()) {
+								String nomeV = to.getNome();
+								for(int x=0+i; x<tp.getVestiti().size(); x++) {
+									Vestito v = tp.getVestiti().get(x);
+									colori.add(v.getColore());
+									if(ocazz)
+										conta = 0;
+									if (v.isDisponibile() && new AbbinaColori(colori, nomeV).combina()) {
 										System.out.println(v.getNome());
-										lista_vestiti.add(v);
+										lista_tipo.add(v);
+										conta++;
+										if(ocazz) {
+											ocazz = false;
+											i=0;
+										}
+										break;
+									}
+									else if(v.isDisponibile()==false)
+										colori.remove(v.getColore());
+									else {
+										colori.remove(v.getColore());
+										ocazz = true;
+										i++;
 									}
 								}
 							}
+							if (conta == to.getTipiVestito().size()) {
+								lista_vestiti.addAll(lista_tipo);
+								fatto = true;
+							}
+							else {
+								lista_tipo.clear();
+								colori.clear();
+							}
+						}
 						}
 						of.setVestitiFatti(lista_vestiti);
 						of.setOutfitCollegato(os);
@@ -76,6 +111,7 @@ public class CreazioneOutfit {
 						em.persist(of);
 						em.getTransaction().commit();
 					}
+					break;
 				}
 			}
 		}
