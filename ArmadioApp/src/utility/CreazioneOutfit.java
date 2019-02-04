@@ -64,56 +64,55 @@ public class CreazioneOutfit {
 						  di un determinato colore, in modo che rinizi un nuovo ciclo da un nuovo punto di partenza e quindi partendo da un vestito che abbia un colore diverso dal precedente.
 						  LEGGERE LE NOTE NELLA CLASSE: "AbbinaColori" PER ULTERIORI DETTAGLI ESPLICATIVI*/
 						for(TipoOutfit to: top.getTipiOutfit()) {
-							//La classe "AbbinaColori" si occuperà di trovare un abbinamento mano a mano che i colori verranno aggiunti all'arraylist colori. Da notare che il primo colore
-							//aggiunto alla lista verrà sempre accettato dal programma al momento. (Ecco il perché della ripetizione del ciclo definita dal ciclo while poco più sotto
-							
-							// quando l'intero "conta" sarà uguale al numero dei vestiti necessari per completare un determinato tipo di outfit, permetterà di interrompere il ciclo while
-							// verrà azzerato in caso di fallimento durante l'abbinamento colori
+							// INTIMO - SOPRA
+							ArrayList<Vestito> lista_fatti = new ArrayList<Vestito>();
+							ArrayList<String> colori = new ArrayList<String>();
 							int conta = 0;
-							ArrayList<String> colori = new ArrayList<>();
-							ArrayList<Vestito> lista_tipo = new ArrayList<Vestito>(); //lista momentanea per i vestiti
-							// l'intero "i" è l'indice che determinerà da dove far partire il ciclo per la ricerca dei vestiti di un determinato tipo da cui verrà estratto il primo colore della lista
-							int i = 0;
-							// il boolean "ocazz" è una variabile che si attiverà in caso di fallito abbinamento, e sarà quindi l'input che permetterà l'incremento di un nuovo ciclo fino a che l'abbinamento avrà successo.
-							boolean ocazz = false;
+							boolean err = false;
 							boolean fatto = false;
+							int x = 0;
+							int a = 0;
+							int indErr = -1;
 							
-							//inizio ciclo
 							while(fatto == false) {
-								for (TipoVestito tp: to.getTipiVestito()) {
-									String nomeV = to.getNome();
-									for(int x=0+i; x<tp.getVestiti().size(); x++) {
-										Vestito v = tp.getVestiti().get(x);
+								for(a=0; a<to.getTipiVestito().size(); a++) {
+									TipoVestito tv = to.getTipiVestito().get(a);
+									if(a == indErr)
+										x=1;
+									else
+										x=0;
+									for(int i=0+x; i<tv.getVestiti().size(); i++) {
+										Vestito v = tv.getVestiti().get(i);
 										colori.add(v.getColore());
-										if(ocazz)
-											conta = 0;
-										if (v.isDisponibile() && new AbbinaColori(colori, nomeV).combina()) { //tutte le condizioni permettono di selezionare un vestito piuttosto che un altro (al momento 2)
+										if(v.isDisponibile() && new AbbinaColori(colori, to.getNome()).combina()) {
+											err = false;
 											System.out.println(v.getNome());
-											lista_tipo.add(v);
+											lista_fatti.add(v);
 											conta++;
-											if(ocazz) { //reset parametri
-												ocazz = false;
-												i=0;
-											}
 											break;
 										}
-										else if(v.isDisponibile()==false)
-											colori.remove(v.getColore());
+										else if(v.isDisponibile()==false){
+											colori.remove(colori.size()-1);
+										}
 										else {
-											colori.remove(v.getColore());
-											ocazz = true;
-											i++;
+											colori.remove(colori.size()-1);
 										}
 									}
 								}
-								if (conta == to.getTipiVestito().size()) {
-									lista_vestiti.addAll(lista_tipo); // la lista momentanea viene integrata con quella definitiva in caso di successo
-									fatto = true; //permette di uscire dal ciclo while e passare al tipo di outfit successivo
+								if(conta == to.getTipiVestito().size()) {
+									fatto = true;
+									lista_vestiti.addAll(lista_fatti);
+									a = 0;
 								}
 								else {
-									lista_tipo.clear(); //reset parametri
+									err = true;
+									indErr = 0;
 									colori.clear();
+									lista_fatti.clear();
+									conta--;
 								}
+								System.out.println(conta);
+								
 							}
 						}
 						of.setVestitiFatti(lista_vestiti);
@@ -127,7 +126,5 @@ public class CreazioneOutfit {
 				}
 			}
 		}
-		
 	}
-
 }

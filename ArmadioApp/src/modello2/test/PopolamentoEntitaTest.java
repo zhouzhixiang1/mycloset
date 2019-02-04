@@ -130,10 +130,17 @@ public class PopolamentoEntitaTest {
 		tv2.addVestito(v2);
 		sv2.addVestito(v2);
 		
+		Vestito v21 = new Vestito();
+		v21.setNome("Maglietta Blu");
+		v21.setDisponibile(true);
+		v21.setColore("blu");
+		tv2.addVestito(v21);
+		sv2.addVestito(v21);
+		
 		Vestito v22 = new Vestito();
 		v22.setColore("verde");
 		v22.setNome("Maglietta brutta");
-		v22.setDisponibile(false);
+		v22.setDisponibile(true);
 		tv2.addVestito(v22);
 		
 		Vestito v3 = new Vestito();
@@ -147,6 +154,12 @@ public class PopolamentoEntitaTest {
 		v32.setNome("Calzini blu");
 		v32.setDisponibile(true);
 		tv3.addVestito(v32);
+		
+		Vestito v33 = new Vestito();
+		v33.setColore("grigio");
+		v33.setNome("Jeans A");
+		v33.setDisponibile(true);
+		tv6.addVestito(v33);
 		
 		Vestito v4 = new Vestito();
 		v4.setColore("grigio");

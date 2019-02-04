@@ -19,6 +19,10 @@ public class AbbinaColori {
 			return true;
 		else if(colori.get(0).equals(colori.get(1)) && nome.equals("Sopra"))
 			return false;
+		
+		else if(nome.equals("Intimo") && colori.get(0).equals(colori.get(1))==false)
+			return false;
+		
 		return true;
 	}
 
