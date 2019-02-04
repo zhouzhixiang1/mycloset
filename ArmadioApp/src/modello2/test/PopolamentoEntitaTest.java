@@ -16,7 +16,7 @@ import utility.CreazioneOutfit;
 import utility.EntityManagerProvider;
 
 public class PopolamentoEntitaTest {
-
+ 
 	@Test
 	public void test() {
 		EntityManager em = EntityManagerProvider.getEntityManager();
