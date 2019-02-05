@@ -1,0 +1,25 @@
+body{background: rgb(228, 226, 226);}
+
+/*----------animazione per il tutorial----------*/
+
+#animate{position: relative;width: 500px;margin: 30 auto 10px;padding: 5px;text-align:center;bottom:5px;}
+#animate2{position: relative;width: 800px;margin: 10 auto 10px;padding: 20px;text-align:center;}
+
+/*----------video----------*/
+
+.div-yt{position: relative;width: 800px;margin: 50 auto 26px;padding: 0px;text-align:center;}
+
+/*----------download con bs----------*/
+
+.jumbotron{background: rgb(228, 226, 226);width: 800px;margin: 10 auto 10px;padding: 10px;text-align:center;}
+
+/*----------navbar footer----------*/
+.nav{background: rgb(49, 43, 43); height:200px; width: 100%; position: relative;border-top: 1px solid #333;}
+.nav ul{list-style: none;  padding: 16px; width: 100%;}
+.nav ul li{position: relative; float: left; width: 33.3%; text-align: center; padding-bottom: 15px; padding-top: 3px;}
+.nav ul li li{position: relative; float:none; width: 100%; border: none;}
+.nav ul ul a{ color: white; padding: 15px 25px;}
+
+/*----------copyright----------*/
+
+.copyright{padding:30px;position: relative;left: 0;bottom: 0;width: 100%;background: rgb(49, 43, 43);color: white;text-align: center;border-top: 1px solid #333;}

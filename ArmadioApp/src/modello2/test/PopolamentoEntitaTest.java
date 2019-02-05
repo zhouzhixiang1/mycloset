@@ -12,7 +12,7 @@ import modello2.SpazioVestito;
 import modello2.TipoOutfit;
 import modello2.TipoVestito;
 import modello2.Vestito;
-import utility.CreaOutfit;
+import utility.CreazioneOutfit;
 import utility.EntityManagerProvider;
 
 public class PopolamentoEntitaTest {
@@ -65,7 +65,6 @@ public class PopolamentoEntitaTest {
 		
 		TipoOutfit to2 = new TipoOutfit();
 		to2.setNome("Sopra");
-		to2.addTipoVestito(tv4);
 		to2.addTipoVestito(tv5);
 		to2.addTipoVestito(tv6);
 		
@@ -108,6 +107,7 @@ public class PopolamentoEntitaTest {
 		Componente c1 = new Componente();
 		c1.setNome("Cassettiera 1");
 		c1.addAlloggiamento(a1);
+		
 		Armadio arm1 = new Armadio();
 		arm1.setNome("Armadio sala");
 		arm1.addComponente(c1);
@@ -117,45 +117,78 @@ public class PopolamentoEntitaTest {
 		
 		Vestito v1 = new Vestito();
 		v1.setNome("Mutande Blu");
+		v1.setColore("blu");
+		v1.setDisponibile(true);
 		tv1.addVestito(v1);
 		sv1.addVestito(v1);
 		
+		
 		Vestito v2 = new Vestito();
 		v2.setNome("Maglietta rossa");
+		v2.setDisponibile(true);
+		v2.setColore("rosso");
 		tv2.addVestito(v2);
 		sv2.addVestito(v2);
 		
+		Vestito v22 = new Vestito();
+		v22.setColore("verde");
+		v22.setNome("Maglietta brutta");
+		v22.setDisponibile(false);
+		tv2.addVestito(v22);
+		
 		Vestito v3 = new Vestito();
+		v3.setColore("nero");
 		v3.setNome("Calzini neri");
+		v3.setDisponibile(false);
 		tv3.addVestito(v3);
 		
 		Vestito v32 = new Vestito();
+		v32.setColore("blu");
 		v32.setNome("Calzini blu");
+		v32.setDisponibile(true);
 		tv3.addVestito(v32);
 		
 		Vestito v4 = new Vestito();
+		v4.setColore("grigio");
 		v4.setNome("Jeans");
-		tv4.addVestito(v4);
+		v4.setDisponibile(true);
+		tv6.addVestito(v4);
 		
 		Vestito v5 = new Vestito();
+		v5.setColore("verde");
 		v5.setNome("Giaccona verde");
-		tv5.addVestito(v5);
+		v5.setDisponibile(true);
+		tv4.addVestito(v4);
+		
+		Vestito v7 = new Vestito();
+		v7.setColore("grigio");
+		v7.setNome("Camicia grigia");
+		v7.setDisponibile(true);
+		tv5.addVestito(v7);
 		
 		Vestito v6 = new Vestito();
+		v6.setColore("azzurro");
 		v6.setNome("Camicia azzurra");
-		tv6.addVestito(v6);
+		v6.setDisponibile(true);
+		tv5.addVestito(v6);
 		
+		Outfit o1 = new Outfit();
+		o1.setNome("invernale1");
+		o1.setTipoOutfit(to3);
+		o1.setTemperatura(0);
+		o1.setTemperaturaMassima(5);
+		o1.setOutdoor(true);
+		
+		em.persist(o1);
+				
 		Outfit o = new Outfit();
-		o.setTipoOutfit(to3);
-		o.setNome("COMPLETONE");
-		
+		o.setNome("InvernaleFeriale");
+		o.addOutfit(o1);
+				
 		System.out.println("Esempio outfit:");
-		CreaOutfit.creaOutfit(o);
-		em.persist(o);
-	
 		em.getTransaction().commit();
-		
-		LogInTest.test();
+		CreazioneOutfit.creaOutfit();
+		CreazioneOutfit.creaOutfit();
 		
 	}
 

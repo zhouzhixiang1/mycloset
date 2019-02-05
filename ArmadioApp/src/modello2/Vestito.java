@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -18,23 +19,20 @@ public class Vestito {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	private String nome;
+	private boolean disponibile;
+	
+	@ManyToMany(mappedBy="vestitiFatti", cascade=CascadeType.ALL, fetch=FetchType.LAZY)
+	private List<OutfitFatto> outfitCollegati;
 	
 	@ManyToOne(cascade=CascadeType.ALL)
 	private TipoVestito tipoVestito;
-	
-	@ManyToMany(cascade=CascadeType.ALL)
-	private List<Outfit> outfit;
 		
 	@ManyToOne(cascade=CascadeType.ALL)
 	private SpazioVestito spazioVestito;
 	
-	public void addOutfit(Outfit o) {
-		if(this.outfit == null)
-			outfit = new ArrayList<>();
-		this.outfit.add(o);
-	}
-	
 	private String tessuto;
+	
+	private String colore;
 
 	public Integer getId() {
 		return id;
@@ -76,11 +74,20 @@ public class Vestito {
 		this.tessuto = tessuto;
 	}
 
-	public List<Outfit> getOutfit() {
-		return outfit;
+
+	public boolean isDisponibile() {
+		return disponibile;
 	}
 
-	public void setOutfit(List<Outfit> outfit) {
-		this.outfit = outfit;
+	public void setDisponibile(boolean disponibile) {
+		this.disponibile = disponibile;
+	}
+
+	public String getColore() {
+		return colore;
+	}
+
+	public void setColore(String colore) {
+		this.colore = colore;
 	}
 }
