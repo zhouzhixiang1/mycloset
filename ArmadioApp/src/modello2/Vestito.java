@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -20,6 +21,9 @@ public class Vestito {
 	private String nome;
 	private boolean disponibile;
 	
+	@ManyToMany(mappedBy="vestitiFatti", cascade=CascadeType.ALL, fetch=FetchType.LAZY)
+	private List<OutfitFatto> outfitCollegati;
+	
 	@ManyToOne(cascade=CascadeType.ALL)
 	private TipoVestito tipoVestito;
 		
@@ -27,6 +31,8 @@ public class Vestito {
 	private SpazioVestito spazioVestito;
 	
 	private String tessuto;
+	
+	private String colore;
 
 	public Integer getId() {
 		return id;
@@ -75,5 +81,13 @@ public class Vestito {
 
 	public void setDisponibile(boolean disponibile) {
 		this.disponibile = disponibile;
+	}
+
+	public String getColore() {
+		return colore;
+	}
+
+	public void setColore(String colore) {
+		this.colore = colore;
 	}
 }
