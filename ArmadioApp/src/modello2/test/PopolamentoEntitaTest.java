@@ -200,9 +200,6 @@ public class PopolamentoEntitaTest {
 				
 		System.out.println("Esempio outfit:");
 		em.getTransaction().commit();
-		CreazioneOutfit.creaOutfit();
-		CreazioneOutfit.creaOutfit();
-		
 	}
 
 }
