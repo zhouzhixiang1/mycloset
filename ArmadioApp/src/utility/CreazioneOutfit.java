@@ -30,7 +30,7 @@ public class CreazioneOutfit {
 				if (temperatura >= os.getTemperatura() & temperatura <= os.getTemperaturaMassima()) {
 					List<Vestito> lista_vestiti = new ArrayList<>();
 					lista_vestiti.clear();
-					boolean disponibili = false;
+					boolean disponibili = false;				
 					System.out.println(os.getOutfitFatti().size());
 					for(OutfitFatto of0: os.getOutfitFatti()) {
 						System.out.println("Finalmente!");
@@ -50,7 +50,7 @@ public class CreazioneOutfit {
 					}
 					if(disponibili) {
 						for (Vestito v: lista_vestiti) {
-							System.out.println(v.getNome());
+							System.out.println(v.getNome()+" - colore: "+v.getColore());
 						}
 					}
 					else {
@@ -111,8 +111,6 @@ public class CreazioneOutfit {
 									lista_fatti.clear();
 									conta--;
 								}
-								System.out.println(conta);
-								
 							}
 						}
 						of.setVestitiFatti(lista_vestiti);
