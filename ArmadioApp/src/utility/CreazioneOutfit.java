@@ -70,18 +70,23 @@ public class CreazioneOutfit {
 							int conta = 0;
 							boolean err = false;
 							boolean fatto = false;
+							int i = 0;
 							int x = 0;
 							int a = 0;
+							int b = 0;
 							int indErr = -1;
 							
 							while(fatto == false) {
 								for(a=0; a<to.getTipiVestito().size(); a++) {
 									TipoVestito tv = to.getTipiVestito().get(a);
-									if(a == indErr)
-										x=1;
+									if(a == indErr) {
+										b++;
+										x = b;
+									}
 									else
 										x=0;
-									for(int i=0+x; i<tv.getVestiti().size(); i++) {
+									System.out.println(x);
+									for(i=0+x; i<tv.getVestiti().size(); i++) {
 										Vestito v = tv.getVestiti().get(i);
 										colori.add(v.getColore());
 										if(v.isDisponibile() && new AbbinaColori(colori, to.getNome()).combina()) {
@@ -91,8 +96,11 @@ public class CreazioneOutfit {
 											conta++;
 											break;
 										}
-										else if(v.isDisponibile()==false){
-											colori.remove(colori.size()-1);
+										else if(i == tv.getVestiti().size()-1 && a == to.getTipiVestito().size()-1 && err){
+											System.out.println(v.getNome());
+											lista_fatti.add(v);
+											conta++;
+											break;
 										}
 										else {
 											colori.remove(colori.size()-1);
