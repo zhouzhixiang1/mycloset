@@ -72,7 +72,7 @@ public class PopolamentoEntitaTest {
 		
 		TipoOutfit to3 = new TipoOutfit();
 		to3.setNome("Completo");
-		to3.addTipoOutfit(to1);
+		//to3.addTipoOutfit(to1);
 		to3.addTipoOutfit(to2);
 		
 		SpazioVestito sv1 = new SpazioVestito();
@@ -180,8 +180,8 @@ public class PopolamentoEntitaTest {
 		tv5.addVestito(v7);
 		
 		Vestito v71 = new Vestito();
-		v71.setColore("rosso");
-		v71.setNome("Camicia diocana");
+		v71.setColore("blu");
+		v71.setNome("Camicia rossa");
 		v71.setDisponibile(true);
 		tv5.addVestito(v71);
 		
