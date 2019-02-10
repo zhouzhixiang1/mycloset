@@ -59,6 +59,7 @@ public class CreazioneOutfit {
 						TipoOutfit top = os.getTipoOutfit();
 						OutfitFatto of = new OutfitFatto();
 						
+						ArrayList<ArrayList<Vestito>> eccentrici = new ArrayList<ArrayList<Vestito>>();
 						ArrayList<ArrayList<Vestito>> abbinati = new ArrayList<ArrayList<Vestito>>();
 						ArrayList<ArrayList<Vestito>> disponibil = new ArrayList<ArrayList<Vestito>>();
 						ArrayList<ArrayList<Vestito>> ripiego = new ArrayList<ArrayList<Vestito>>();
@@ -66,54 +67,80 @@ public class CreazioneOutfit {
 
 						for(TipoOutfit to: top.getTipiOutfit()) {
 							
-							ArrayList<Vestito> parteSopra = new ArrayList<Vestito>();
-							ArrayList<Vestito> parteSotto = new ArrayList<Vestito>();	
+							if(to.getNome().equals("Sopra")) {
 							
-							int i = 0;
-							for(TipoVestito tv: to.getTipiVestito()) {
-								for(Vestito v: tv.getVestiti()) {
-									if(i==0)
-										parteSopra.add(v);
-									else
-										parteSotto.add(v);
+								ArrayList<Vestito> parteSopra = new ArrayList<Vestito>();
+								ArrayList<Vestito> parteSotto = new ArrayList<Vestito>();	
+							
+								int i = 0;
+								for(TipoVestito tv: to.getTipiVestito()) {
+									for(Vestito v: tv.getVestiti()) {
+										if(i==0)
+											parteSopra.add(v);
+										else
+											parteSotto.add(v);
+									}
+									i++;
 								}
-								i++;
-							}
 							
-							for(Vestito v: parteSopra) {
-								for(Vestito v2: parteSotto) {
-									ArrayList<String> colori = new ArrayList<String>();
-									ArrayList<Vestito> selezionati = new ArrayList<Vestito>();
-									selezionati.add(v);
-									selezionati.add(v2);
-									colori.add(v.getColore());
-									colori.add(v2.getColore());
-									if(v.isDisponibile()) {
+								for(Vestito v: parteSopra) {
+									for(Vestito v2: parteSotto) {
+										ArrayList<Vestito> selezionati = new ArrayList<Vestito>();
+										selezionati.add(v);
+										selezionati.add(v2);
+										if(v.isDisponibile()) {
 										
-										if(v2.isDisponibile()) {
+											if(v2.isDisponibile()) {
+												
+												if(new AbbinaColori("eccentric").abbina(v.getColore(), v2.getColore())) {
+													eccentrici.add(selezionati);
+												}
 											
-											if(new AbbinaColori(colori, to.getNome()).combina()) {
-												abbinati.add(selezionati);
+												else if(new AbbinaColori().abbina(v.getColore(), v2.getColore())) {
+													abbinati.add(selezionati);
+												}
+												else
+													disponibil.add(selezionati);
 											}
-											else
-												disponibil.add(selezionati);
+											else if(v2.isDisponibile()==false && new AbbinaColori().abbina(v.getColore(),v2.getColore()))
+												ripiego.add(selezionati);
 										}
-										else if(v2.isDisponibile()==false && new AbbinaColori(colori, to.getNome()).combina())
-											ripiego.add(selezionati);
+									}
+								}
+							}
+							else {
+								for(TipoVestito tv: to.getTipiVestito()) {
+									for(Vestito v: tv.getVestiti()) {
+										if(v.isDisponibile()) {
+											lista_vestiti.add(v);
+											break;
+										}
 									}
 								}
 							}
 						}
 						
+						boolean ecc = false;
 						boolean abb = false;
 						boolean disp = false;
 						boolean ripie = false;
+						boolean pref = true;
 						
-						if(abbinati.size()>0)
+						if(eccentrici.size()>0 && pref)
+							ecc = true;
+						else if(abbinati.size()>0)
 							abb=true;
+						else if(eccentrici.size()>0)
+							ecc=true;
 						else if(disponibil.size()>0)
 							disp=true;
 						else ripie=true;
+						
+						if(ecc) {
+							Random r = new Random();
+							int i = r.nextInt(eccentrici.size());
+							lista_vestiti.addAll(eccentrici.get(i));
+						}
 						
 						if(abb) {
 							Random r = new Random();
@@ -133,13 +160,21 @@ public class CreazioneOutfit {
 							lista_vestiti.addAll(ripiego.get(i));
 						}
 						
+						System.out.println("Outfit eccentrici: ");
+						for(ArrayList<Vestito> av: eccentrici) {
+							for(Vestito v: av) {
+								System.out.println(v.getNome()+" - colore: "+v.getColore());
+							}
+						}
+						System.out.println();
+						
 						System.out.println("Outfit abbinati: ");
 						for(ArrayList<Vestito> av: abbinati) {
 							for(Vestito v: av) {
 								System.out.println(v.getNome()+" - colore: "+v.getColore());
 							}
-							System.out.println();
 						}
+						System.out.println();
 						
 						System.out.println("Outfit disponibili: ");
 						for(ArrayList<Vestito> av: disponibil) {
@@ -147,6 +182,7 @@ public class CreazioneOutfit {
 								System.out.println(v.getNome()+" - colore: "+v.getColore());
 							System.out.println();
 						}
+						System.out.println();
 						
 						System.out.println("Outfit ripiego: ");
 						for(ArrayList<Vestito> av: ripiego) {
@@ -154,6 +190,7 @@ public class CreazioneOutfit {
 								System.out.println(v.getNome()+" - colore: "+v.getColore());
 							System.out.println();
 						}
+						System.out.println();
 			
 						of.setVestitiFatti(lista_vestiti);
 						of.setOutfitCollegato(os);
