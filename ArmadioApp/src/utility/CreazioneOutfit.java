@@ -58,61 +58,140 @@ public class CreazioneOutfit {
 						lista_vestiti.clear();
 						TipoOutfit top = os.getTipoOutfit();
 						OutfitFatto of = new OutfitFatto();
-						/*Da qui in poi i tipi di outfit (es: intimo, sopra, sotto) verranno ciclati per trovare la lista dei vestiti corrispondente
-						  ad ogni tipo. Al momento il codice qua sotto permette di abbinare i vestiti in base al colore, evitando ripetizioni di colori uguali nell'abbinamento
-						  per pantaloni e camicia. Risulta essere lungo perché ho tenuto conto delle varie ripetizioni che il programma deve eseguire nel caso non trovi un vestito
-						  di un determinato colore, in modo che rinizi un nuovo ciclo da un nuovo punto di partenza e quindi partendo da un vestito che abbia un colore diverso dal precedente.
-						  LEGGERE LE NOTE NELLA CLASSE: "AbbinaColori" PER ULTERIORI DETTAGLI ESPLICATIVI*/
+						
+						ArrayList<ArrayList<Vestito>> eccentrici = new ArrayList<ArrayList<Vestito>>();
+						ArrayList<ArrayList<Vestito>> abbinati = new ArrayList<ArrayList<Vestito>>();
+						ArrayList<ArrayList<Vestito>> disponibil = new ArrayList<ArrayList<Vestito>>();
+						ArrayList<ArrayList<Vestito>> ripiego = new ArrayList<ArrayList<Vestito>>();
+						
+
 						for(TipoOutfit to: top.getTipiOutfit()) {
-							// INTIMO - SOPRA
-							ArrayList<Vestito> lista_fatti = new ArrayList<Vestito>();
-							ArrayList<String> colori = new ArrayList<String>();
-							int conta = 0;
-							boolean err = false;
-							boolean fatto = false;
-							int x = 0;
-							int a = 0;
-							int indErr = -1;
 							
-							while(fatto == false) {
-								for(a=0; a<to.getTipiVestito().size(); a++) {
-									TipoVestito tv = to.getTipiVestito().get(a);
-									if(a == indErr)
-										x=1;
-									else
-										x=0;
-									for(int i=0+x; i<tv.getVestiti().size(); i++) {
-										Vestito v = tv.getVestiti().get(i);
-										colori.add(v.getColore());
-										if(v.isDisponibile() && new AbbinaColori(colori, to.getNome()).combina()) {
-											err = false;
-											System.out.println(v.getNome());
-											lista_fatti.add(v);
-											conta++;
-											break;
-										}
-										else if(v.isDisponibile()==false){
-											colori.remove(colori.size()-1);
-										}
-										else {
-											colori.remove(colori.size()-1);
+							if(to.getNome().equals("Sopra")) {
+							
+								ArrayList<Vestito> parteSopra = new ArrayList<Vestito>();
+								ArrayList<Vestito> parteSotto = new ArrayList<Vestito>();	
+							
+								int i = 0;
+								for(TipoVestito tv: to.getTipiVestito()) {
+									for(Vestito v: tv.getVestiti()) {
+										if(i==0)
+											parteSopra.add(v);
+										else
+											parteSotto.add(v);
+									}
+									i++;
+								}
+							
+								for(Vestito v: parteSopra) {
+									for(Vestito v2: parteSotto) {
+										ArrayList<Vestito> selezionati = new ArrayList<Vestito>();
+										selezionati.add(v);
+										selezionati.add(v2);
+										if(v.isDisponibile()) {
+										
+											if(v2.isDisponibile()) {
+												
+												if(new AbbinaColori("eccentric").abbina(v.getColore(), v2.getColore())) {
+													eccentrici.add(selezionati);
+												}
+											
+												else if(new AbbinaColori().abbina(v.getColore(), v2.getColore())) {
+													abbinati.add(selezionati);
+												}
+												else
+													disponibil.add(selezionati);
+											}
+											else if(v2.isDisponibile()==false && new AbbinaColori().abbina(v.getColore(),v2.getColore()))
+												ripiego.add(selezionati);
 										}
 									}
 								}
-								if(conta == to.getTipiVestito().size()) {
-									fatto = true;
-									lista_vestiti.addAll(lista_fatti);
-									a = 0;
-								}
-								else {
-									err = true;
-									indErr = 0;
-									colori.clear();
-									lista_fatti.clear();
-									conta--;
+							}
+							else {
+								for(TipoVestito tv: to.getTipiVestito()) {
+									for(Vestito v: tv.getVestiti()) {
+										if(v.isDisponibile()) {
+											lista_vestiti.add(v);
+											break;
+										}
+									}
 								}
 							}
 						}
+						
+						boolean ecc = false;
+						boolean abb = false;
+						boolean disp = false;
+						boolean ripie = false;
+						boolean pref = true;
+						
+						if(eccentrici.size()>0 && pref)
+							ecc = true;
+						else if(abbinati.size()>0)
+							abb=true;
+						else if(eccentrici.size()>0)
+							ecc=true;
+						else if(disponibil.size()>0)
+							disp=true;
+						else ripie=true;
+						
+						if(ecc) {
+							Random r = new Random();
+							int i = r.nextInt(eccentrici.size());
+							lista_vestiti.addAll(eccentrici.get(i));
+						}
+						
+						if(abb) {
+							Random r = new Random();
+							int i = r.nextInt(abbinati.size());
+							lista_vestiti.addAll(abbinati.get(i));
+						}
+						
+						if(disp) {
+							Random r = new Random();
+							int i = r.nextInt(disponibil.size());
+							lista_vestiti.addAll(disponibil.get(i));
+						}
+						
+						if(ripie) {
+							Random r = new Random();
+							int i = r.nextInt(ripiego.size());
+							lista_vestiti.addAll(ripiego.get(i));
+						}
+						
+						System.out.println("Outfit eccentrici: ");
+						for(ArrayList<Vestito> av: eccentrici) {
+							for(Vestito v: av) {
+								System.out.println(v.getNome()+" - colore: "+v.getColore());
+							}
+						}
+						System.out.println();
+						
+						System.out.println("Outfit abbinati: ");
+						for(ArrayList<Vestito> av: abbinati) {
+							for(Vestito v: av) {
+								System.out.println(v.getNome()+" - colore: "+v.getColore());
+							}
+						}
+						System.out.println();
+						
+						System.out.println("Outfit disponibili: ");
+						for(ArrayList<Vestito> av: disponibil) {
+							for(Vestito v: av)
+								System.out.println(v.getNome()+" - colore: "+v.getColore());
+							System.out.println();
+						}
+						System.out.println();
+						
+						System.out.println("Outfit ripiego: ");
+						for(ArrayList<Vestito> av: ripiego) {
+							for(Vestito v: av)
+								System.out.println(v.getNome()+" - colore: "+v.getColore());
+							System.out.println();
+						}
+						System.out.println();
+			
 						of.setVestitiFatti(lista_vestiti);
 						of.setOutfitCollegato(os);
 						os.addOutfitFatto(of);
