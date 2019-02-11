@@ -16,7 +16,7 @@ import utility.CreazioneOutfit;
 import utility.EntityManagerProvider;
 
 public class PopolamentoEntitaTest {
-
+ 
 	@Test
 	public void test() {
 		EntityManager em = EntityManagerProvider.getEntityManager();
@@ -116,30 +116,37 @@ public class PopolamentoEntitaTest {
 		
 		
 		Vestito v1 = new Vestito();
-		v1.setNome("Mutande Blu");
-		v1.setColore("blu");
+		v1.setNome("Mutande");
+		v1.setColore("rosso");
 		v1.setDisponibile(true);
-		tv1.addVestito(v1);
+		tv2.addVestito(v1);
 		sv1.addVestito(v1);
 		
 		
 		Vestito v2 = new Vestito();
-		v2.setNome("Maglietta rossa");
+		v2.setNome("Mutande");
 		v2.setDisponibile(true);
-		v2.setColore("rosso");
-		tv2.addVestito(v2);
+		v2.setColore("blu");
+		tv1.addVestito(v2);
 		sv2.addVestito(v2);
+		
+		Vestito v21 = new Vestito();
+		v21.setNome("Maglietta Blu");
+		v21.setDisponibile(true);
+		v21.setColore("blu");
+		tv2.addVestito(v21);
+		sv2.addVestito(v21);
 		
 		Vestito v22 = new Vestito();
 		v22.setColore("verde");
 		v22.setNome("Maglietta brutta");
-		v22.setDisponibile(false);
+		v22.setDisponibile(true);
 		tv2.addVestito(v22);
 		
 		Vestito v3 = new Vestito();
 		v3.setColore("nero");
 		v3.setNome("Calzini neri");
-		v3.setDisponibile(false);
+		v3.setDisponibile(true);
 		tv3.addVestito(v3);
 		
 		Vestito v32 = new Vestito();
@@ -148,8 +155,14 @@ public class PopolamentoEntitaTest {
 		v32.setDisponibile(true);
 		tv3.addVestito(v32);
 		
+		Vestito v33 = new Vestito();
+		v33.setColore("azzurro");
+		v33.setNome("Jeans A");
+		v33.setDisponibile(true);
+		tv6.addVestito(v33);
+		
 		Vestito v4 = new Vestito();
-		v4.setColore("grigio");
+		v4.setColore("viola");
 		v4.setNome("Jeans");
 		v4.setDisponibile(true);
 		tv6.addVestito(v4);
@@ -161,14 +174,20 @@ public class PopolamentoEntitaTest {
 		tv4.addVestito(v4);
 		
 		Vestito v7 = new Vestito();
-		v7.setColore("grigio");
-		v7.setNome("Camicia grigia");
+		v7.setColore("giallo");
+		v7.setNome("Camicia gialla");
 		v7.setDisponibile(true);
 		tv5.addVestito(v7);
 		
+		Vestito v71 = new Vestito();
+		v71.setColore("blu");
+		v71.setNome("Camicia");
+		v71.setDisponibile(true);
+		tv5.addVestito(v71);
+		
 		Vestito v6 = new Vestito();
-		v6.setColore("azzurro");
-		v6.setNome("Camicia azzurra");
+		v6.setColore("grigio");
+		v6.setNome("Camicia");
 		v6.setDisponibile(true);
 		tv5.addVestito(v6);
 		
@@ -187,9 +206,10 @@ public class PopolamentoEntitaTest {
 				
 		System.out.println("Esempio outfit:");
 		em.getTransaction().commit();
-		CreazioneOutfit.creaOutfit();
-		CreazioneOutfit.creaOutfit();
 		
+		CreazioneOutfit.creaOutfit();
+		CreazioneOutfit.creaOutfit();
+
 	}
 
 }

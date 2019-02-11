@@ -21,7 +21,7 @@ public class TipoOutfit {
 	private Integer id;
 	private String nome;
 	
-	@OneToMany(mappedBy="tipoOutfitPrincipale", cascade=CascadeType.ALL, fetch=FetchType.LAZY)
+	@ManyToMany(mappedBy="tipoOutfitPrincipale", cascade=CascadeType.ALL, fetch=FetchType.LAZY)
 	private List<TipoOutfit> tipiOutfit;
 	
 	@ManyToMany(mappedBy="tipiOutfit", cascade=CascadeType.ALL, fetch=FetchType.LAZY)
@@ -31,7 +31,7 @@ public class TipoOutfit {
 		if (this.tipiOutfit == null)
 			this.tipiOutfit = new ArrayList<>();
 		this.tipiOutfit.add(to);
-		to.setTipoOutfitPrincipale(this);
+		to.getTipoOutfitPrincipale().add(this);
 	}
 	
 	public void addTipoVestito (TipoVestito tv) {
@@ -41,8 +41,8 @@ public class TipoOutfit {
 		tv.addTipoOutfit(this);
 	}
 	
-	@ManyToOne(cascade=CascadeType.ALL)
-	private TipoOutfit tipoOutfitPrincipale;
+	@ManyToMany(cascade=CascadeType.ALL)
+	private List<TipoOutfit> tipoOutfitPrincipale;
 	
 	public Integer getId() {
 		return id;
@@ -69,11 +69,11 @@ public class TipoOutfit {
 		this.tipiVestito = tipiVestito;
 	}
 
-	public TipoOutfit getTipoOutfitPrincipale() {
+	public List<TipoOutfit> getTipoOutfitPrincipale() {
 		return tipoOutfitPrincipale;
 	}
 
-	public void setTipoOutfitPrincipale(TipoOutfit tipoOutfitPrincipale) {
+	public void setTipoOutfitPrincipale(List<TipoOutfit> tipoOutfitPrincipale) {
 		this.tipoOutfitPrincipale = tipoOutfitPrincipale;
 	}
 	
