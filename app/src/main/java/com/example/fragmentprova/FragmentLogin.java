@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 public class FragmentLogin extends Fragment {
 
@@ -21,7 +22,7 @@ public class FragmentLogin extends Fragment {
 
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable final ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_login, container, false);
 
         email = view.findViewById(R.id.email);
@@ -30,11 +31,23 @@ public class FragmentLogin extends Fragment {
         btnLogin = view.findViewById(R.id.btnLogin);
         btnRegistrati = view.findViewById(R.id.btnRegister);
 
+        final DBAdapterLogin db = new DBAdapterLogin(view.getContext());
+
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String emailInserita = email.getText().toString();
                 String passwordInserita = password.getText().toString();
+                if(emailInserita != null && passwordInserita!= null) {
+                    if(db.isEmailPresent(emailInserita)) {
+                        if(db.getPassword(emailInserita).equals(passwordInserita))
+                            Toast.makeText(container.getContext(), "no", Toast.LENGTH_LONG).show();
+                    }
+                    else{
+                        Toast.makeText(container.getContext(), "si", Toast.LENGTH_LONG).show();
+                    }
+                }
+
 
             }
         });
