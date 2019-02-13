@@ -36,17 +36,20 @@ public class FragmentLogin extends Fragment {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 String emailInserita = email.getText().toString();
                 String passwordInserita = password.getText().toString();
-                if(emailInserita != null && passwordInserita!= null) {
+
+                db.addDati(emailInserita, passwordInserita);
+                /*if(emailInserita != null && passwordInserita!= null) {
                     if(db.isEmailPresent(emailInserita)) {
                         if(db.getPassword(emailInserita).equals(passwordInserita))
-                            Toast.makeText(container.getContext(), "no", Toast.LENGTH_LONG).show();
+                            Toast.makeText(container.getContext(), "login effettuato", Toast.LENGTH_LONG).show();
                     }
                     else{
-                        Toast.makeText(container.getContext(), "si", Toast.LENGTH_LONG).show();
+                        Toast.makeText(container.getContext(), "no presente", Toast.LENGTH_LONG).show();
                     }
-                }
+                }*/
 
 
             }

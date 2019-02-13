@@ -27,6 +27,8 @@ public class FragmentOne extends Fragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_one, container, false);
 
+        final DBAdapterLogin db = new DBAdapterLogin(view.getContext());
+
         imageView = view.findViewById(R.id.imageView);
         imageView2 = view.findViewById(R.id.imageView2);
         imageView.setImageResource(R.drawable.t_shirt_maschio);
@@ -58,6 +60,7 @@ public class FragmentOne extends Fragment{
             public void onClick(View v) {
                 Fragment fragmentAddOutfit = new FragmentAddOutfit();
                 getFragmentManager().beginTransaction().replace(R.id.container, fragmentAddOutfit).commit();
+                db.addVestito("rosso", 1, "calcestruzzo", 0);
             }
         });
 
