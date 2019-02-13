@@ -12,6 +12,7 @@ public class Popolamento {
         this.db = new DBAdapterLogin(context);
         popolaOutfit();
         popolaTipoOutfit();
+        popolaTipoVestito();
     }
 
     private void popolaOutfit(){
@@ -21,5 +22,14 @@ public class Popolamento {
 
     private void popolaTipoOutfit(){
         db.addTipoOutfit(1, "Completo", null);
+        int[] i = {1};
+        db.addTipoOutfit(2, "Sopra", i);
+        db.addTipoOutfit(3, "Intimo", i);
+    }
+
+    private void popolaTipoVestito(){
+        db.addTipoVestito(1, "Camicia");
+        db.addTipoVestito(2, "Pantalone");
+        db.addTipoVestito(3, "Maglietta");
     }
 }

@@ -14,12 +14,16 @@ import android.view.MenuItem;
 import android.view.Window;
 
 public class MainActivity extends AppCompatActivity {
+    boolean done = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        new Popolamento(this);
+        if(done == false) {
+            new Popolamento(this);
+            done = true;
+        }
 
         /*
         Fragment fragment = new FragmentOne();

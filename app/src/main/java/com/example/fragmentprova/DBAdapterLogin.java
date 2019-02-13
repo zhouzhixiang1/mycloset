@@ -76,17 +76,31 @@ public class DBAdapterLogin {
         ContentValues values = new ContentValues();
         values.put("NOME", nome);
 
-        ContentValues values2 = new ContentValues();
-        for(int i: tipoOutfitPrincipale_ID){
-            values2.put("tipoOutfitPrincipale_ID", i);
-            values2.put("tipiOutfit_ID", id);
-        }
-
         database.insert(DBHelper.TABLE_TIPOOUTFIT, null, values);
-        database.insert(DBHelper.TABLE_TIPOOUTFIT_TIPOOUTFIT, null, values2);
+
+        ContentValues values2 = new ContentValues();
+        if(tipoOutfitPrincipale_ID!=null) {
+            for (int i : tipoOutfitPrincipale_ID) {
+                values2.put("tipoOutfitPrincipale_ID", i);
+                values2.put("tipiOutfit_ID", id);
+            }
+            database.insert(DBHelper.TABLE_TIPOOUTFIT_TIPOOUTFIT, null, values2);
+        }
 
         close();
 
+    }
+
+    void addTipoVestito(int id, String nome){
+        open();
+
+        ContentValues values = new ContentValues();
+        values.put("ID", id);
+        values.put("NOME", nome);
+
+        database.insert(DBHelper.TABLE_TIPOVESTITO, null, values);
+
+        close();
     }
 
     Boolean isEmailPresent(String email){
