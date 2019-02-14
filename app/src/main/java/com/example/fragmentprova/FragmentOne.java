@@ -54,6 +54,8 @@ public class FragmentOne extends Fragment{
             public void onClick(View v) {
                 Fragment fragmentModificaOutfit = new FragmentModificaOutfit();
                 getFragmentManager().beginTransaction().replace(R.id.container, fragmentModificaOutfit).commit();
+                db.addVestito("rosso", 1, "maglia", "avorio", 1, "ciao");
+                db.addVestito("giallo", 1, "pantalone", "cacca", 2, "ciao");
             }
         });
 
@@ -62,7 +64,6 @@ public class FragmentOne extends Fragment{
             public void onClick(View v) {
                 Fragment fragmentAddOutfit = new FragmentAddOutfit();
                 getFragmentManager().beginTransaction().replace(R.id.container, fragmentAddOutfit).commit();
-                db.addVestito("rosso", 1, "calcestruzzo", 0, "ciao");
                 ArrayList<String> id = db.getVestiti("InvernaleFeriale");
                 StringBuilder sb = new StringBuilder();
                 for(String s : id){

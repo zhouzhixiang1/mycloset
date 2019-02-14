@@ -42,12 +42,13 @@ public class DBAdapterLogin {
         close();
     }
 
-    void addVestito(String colore, int disponibile, String tessuto, int tipoVestito_ID, String pic_tag){
+    void addVestito(String colore, int disponibile, String nome, String tessuto, int tipoVestito_ID, String pic_tag){
         open();
 
         ContentValues values = new ContentValues();
         values.put("COLORE", colore);
         values.put("DISPONIBILE", disponibile);
+        values.put("NOME", nome);
         values.put("TESSUTO", tessuto);
         values.put("TIPOVESTITO_ID", tipoVestito_ID);
         values.put("PIC_TAG", pic_tag);
@@ -82,7 +83,7 @@ public class DBAdapterLogin {
         database.insert(DBHelper.TABLE_TIPOOUTFIT, null, values);
 
         ContentValues values2 = new ContentValues();
-        ContentValues values3 = new ContentValues();
+
         if(tipoOutfitPrincipale_ID!=null) {
             for (int i : tipoOutfitPrincipale_ID) {
                 values2.put("tipoOutfitPrincipale_ID", i);
@@ -91,12 +92,14 @@ public class DBAdapterLogin {
             database.insert(DBHelper.TABLE_TIPOOUTFIT_TIPOOUTFIT, null, values2);
         }
 
+        ContentValues values3 = new ContentValues();
+
         if(tipiVestito!=null){
             for(int i : tipiVestito){
                 values3.put("tipiOutfit_ID", id);
                 values3.put("tipiVestito_ID", i);
+                database.insert(DBHelper.TABLE_TIPOVESTITO_TIPOOUTFIT, null, values3);
             }
-            database.insert(DBHelper.TABLE_TIPOVESTITO_TIPOOUTFIT, null, values3);
         }
 
         close();
@@ -139,8 +142,41 @@ public class DBAdapterLogin {
             } while (cursor3.moveToNext());
         }
 
+        ArrayList<String> sopra = new ArrayList<String>();
+        ArrayList<String> vestNames = new ArrayList<String>();
+
+        for(String s: tipiOutfit_id){
+            if(s.equals("2")){
+                String selectQuery2 = "SELECT * FROM " + DBHelper.TABLE_TIPOVESTITO_TIPOOUTFIT + " WHERE tipiOutfit_ID = ?";
+                Cursor cursor4 = database.rawQuery(selectQuery2, new String[]{s});
+
+                if(cursor4.moveToFirst()){
+                    do{
+                        sopra.add(cursor4.getString(1));
+                    }while(cursor4.moveToNext());
+                }
+
+                String selectQuery3 = "SELECT * FROM " + DBHelper.TABLE_VESTITI + " WHERE TIPOVESTITO_ID = ?";
+                String[] sopr = new String[sopra.size()];
+                for(int i=0; i<sopra.size(); i++){
+                    sopr[i] = sopra.get(i);
+                }
+                Cursor cursor5 = database.rawQuery(selectQuery3, new String[]{"1", "2"});
+                if(cursor5!=null)
+                    cursor5.moveToFirst();
+
+                for(String a : sopra){
+                    if(cursor5.getString(2).equals("1")){
+                        vestNames.add(cursor5.getString(3));
+                        break;
+                    }
+                    cursor5.moveToNext();
+                }
+            }
+        }
+
         close();
-        return tipiOutfit_id;
+        return vestNames;
     }
 
     Boolean isEmailPresent(String email){

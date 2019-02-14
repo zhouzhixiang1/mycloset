@@ -70,7 +70,8 @@ public class DBHelper extends SQLiteOpenHelper {
 
     public static final String CREATE_TIPOVESTITO_TIPOOUTFIT = "CREATE TABLE `tipovestito_tipooutfit` (" +
             " `tipiOutfit_ID` INTEGER NOT NULL," +
-            " `tipiVestito_ID` INTEGER NOT NULL )";
+            " `tipiVestito_ID` INTEGER NOT NULL, " +
+            " PRIMARY KEY(`tipiOutfit_ID`,`tipiVestito_ID`) )";
 
 
     public DBHelper(Context context) {
