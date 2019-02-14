@@ -13,6 +13,8 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 public class FragmentOne extends Fragment{
 
     ImageView imageView;
@@ -25,7 +27,7 @@ public class FragmentOne extends Fragment{
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_one, container, false);
+        final View view = inflater.inflate(R.layout.fragment_one, container, false);
 
         final DBAdapterLogin db = new DBAdapterLogin(view.getContext());
 
@@ -60,7 +62,13 @@ public class FragmentOne extends Fragment{
             public void onClick(View v) {
                 Fragment fragmentAddOutfit = new FragmentAddOutfit();
                 getFragmentManager().beginTransaction().replace(R.id.container, fragmentAddOutfit).commit();
-                db.addVestito("rosso", 1, "calcestruzzo", 0);
+                db.addVestito("rosso", 1, "calcestruzzo", 0, "ciao");
+                ArrayList<String> id = db.getVestiti("InvernaleFeriale");
+                StringBuilder sb = new StringBuilder();
+                for(String s : id){
+                    sb.append(s);
+                }
+                Toast.makeText(view.getContext(), sb, Toast.LENGTH_LONG).show();
             }
         });
 
