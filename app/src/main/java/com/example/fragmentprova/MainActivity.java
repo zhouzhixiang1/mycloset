@@ -23,10 +23,8 @@ public class MainActivity extends AppCompatActivity {
 
         new Popolamento(this);
 
-
-        /*
         Fragment fragment = new FragmentOne();
-        getSupportFragmentManager().beginTransaction().add(R.id.container, fragment).commit();*/
+        getSupportFragmentManager().beginTransaction().add(R.id.container, fragment).commit();
 
         final BottomNavigationView bottomNavigationView = findViewById(R.id.navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {

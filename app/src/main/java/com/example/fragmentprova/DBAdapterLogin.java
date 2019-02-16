@@ -6,7 +6,10 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.example.fragmentprova.utility.AbbinaColori;
+
 import java.util.ArrayList;
+import java.util.Random;
 
 public class DBAdapterLogin {
 
@@ -42,7 +45,7 @@ public class DBAdapterLogin {
         close();
     }
 
-    void addVestito(String colore, int disponibile, String nome, String tessuto, int tipoVestito_ID, String pic_tag){
+    void addVestito(String colore, int disponibile, String nome, String tessuto, int tipoVestito_ID, int pic_tag){
         open();
 
         ContentValues values = new ContentValues();
@@ -118,7 +121,7 @@ public class DBAdapterLogin {
         close();
     }
 
-    ArrayList<String> getVestiti(String outfit){
+    ArrayList<Vestito> getVestiti(String outfit){
         open();
         Cursor cursor = database.query(DBHelper.TABLE_OUTFIT, new String[]{"ID"}, "NOME" + "=?",
                 new String[]{outfit},null,null,null,null);
@@ -143,10 +146,19 @@ public class DBAdapterLogin {
         }
 
         ArrayList<String> sopra = new ArrayList<String>();
-        ArrayList<String> vestNames = new ArrayList<String>();
+        ArrayList<Vestito> lista_vestiti = new ArrayList<Vestito>();
+
+        ArrayList<ArrayList<Vestito>> eccentrici = new ArrayList<ArrayList<Vestito>>();
+        ArrayList<ArrayList<Vestito>> abbinati = new ArrayList<ArrayList<Vestito>>();
+        ArrayList<ArrayList<Vestito>> disponibil = new ArrayList<ArrayList<Vestito>>();
+        ArrayList<ArrayList<Vestito>> ripiego = new ArrayList<ArrayList<Vestito>>();
 
         for(String s: tipiOutfit_id){
             if(s.equals("2")){
+
+                ArrayList<Vestito> parteSopra = new ArrayList<Vestito>();
+                ArrayList<Vestito> parteSotto = new ArrayList<Vestito>();
+
                 String selectQuery2 = "SELECT * FROM " + DBHelper.TABLE_TIPOVESTITO_TIPOOUTFIT + " WHERE tipiOutfit_ID = ?";
                 Cursor cursor4 = database.rawQuery(selectQuery2, new String[]{s});
 
@@ -156,27 +168,101 @@ public class DBAdapterLogin {
                     }while(cursor4.moveToNext());
                 }
 
-                String selectQuery3 = "SELECT * FROM " + DBHelper.TABLE_VESTITI + " WHERE TIPOVESTITO_ID = ?";
+                String selectQuery3 = "SELECT * FROM " + DBHelper.TABLE_VESTITI + " WHERE TIPOVESTITO_ID = ? OR TIPOVESTITO_ID = ?";
                 String[] sopr = new String[sopra.size()];
                 for(int i=0; i<sopra.size(); i++){
                     sopr[i] = sopra.get(i);
                 }
                 Cursor cursor5 = database.rawQuery(selectQuery3, new String[]{"1", "2"});
-                if(cursor5!=null)
-                    cursor5.moveToFirst();
 
-                for(String a : sopra){
-                    if(cursor5.getString(2).equals("1")){
-                        vestNames.add(cursor5.getString(3));
-                        break;
+                if(cursor5.moveToFirst()) {
+                    do {
+                        Vestito v = new Vestito();
+                        v.setColore(cursor5.getString(1));
+                        v.setDisponibile(cursor5.getString(2));
+                        v.setNome(cursor5.getString(3));
+                        v.setTessuto(cursor5.getString(4));
+                        v.setTipoVestito(cursor5.getString(5));
+                        v.setPic_tag(Integer.parseInt(cursor5.getString(7)));
+
+                        if(cursor5.getString(5).equals("1")) {
+                            parteSopra.add(v);
+                        }
+                        else if(cursor5.getString(5).equals("2")){
+                            parteSotto.add(v);
+                        }
+                    } while (cursor5.moveToNext());
+                }
+
+                for(Vestito v: parteSopra) {
+                    for(Vestito v2: parteSotto) {
+                        ArrayList<Vestito> selezionati = new ArrayList<Vestito>();
+                        selezionati.add(v);
+                        selezionati.add(v2);
+                        if(v.isDisponibile().equals("1")) {
+
+                            if(v2.isDisponibile().equals("1")) {
+
+                                if(new AbbinaColori("eccentric").abbina(v.getColore(), v2.getColore())) {
+                                    eccentrici.add(selezionati);
+                                }
+
+                                else if(new AbbinaColori().abbina(v.getColore(), v2.getColore())) {
+                                    abbinati.add(selezionati);
+                                }
+                                else
+                                    disponibil.add(selezionati);
+                            }
+                            else if(v2.isDisponibile().equals("0") && new AbbinaColori().abbina(v.getColore(),v2.getColore()))
+                                ripiego.add(selezionati);
+                        }
                     }
-                    cursor5.moveToNext();
+                }
+
+                boolean ecc = false;
+                boolean abb = false;
+                boolean disp = false;
+                boolean ripie = false;
+                boolean pref = true;
+
+                if(eccentrici.size()>0 && pref)
+                    ecc = true;
+                else if(abbinati.size()>0)
+                    abb=true;
+                else if(eccentrici.size()>0)
+                    ecc=true;
+                else if(disponibil.size()>0)
+                    disp=true;
+                else ripie=true;
+
+                if(ecc) {
+                    Random r = new Random();
+                    int i = r.nextInt(eccentrici.size());
+                    lista_vestiti.addAll(eccentrici.get(i));
+                }
+
+                if(abb) {
+                    Random r = new Random();
+                    int i = r.nextInt(abbinati.size());
+                    lista_vestiti.addAll(abbinati.get(i));
+                }
+
+                if(disp) {
+                    Random r = new Random();
+                    int i = r.nextInt(disponibil.size());
+                    lista_vestiti.addAll(disponibil.get(i));
+                }
+
+                if(ripie) {
+                    Random r = new Random();
+                    int i = r.nextInt(ripiego.size());
+                    lista_vestiti.addAll(ripiego.get(i));
                 }
             }
         }
 
         close();
-        return vestNames;
+        return lista_vestiti;
     }
 
     Boolean isEmailPresent(String email){

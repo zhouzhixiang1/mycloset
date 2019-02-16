@@ -33,14 +33,29 @@ public class FragmentOne extends Fragment{
 
         imageView = view.findViewById(R.id.imageView);
         imageView2 = view.findViewById(R.id.imageView2);
-        imageView.setImageResource(R.drawable.t_shirt_maschio);
-        imageView2.setImageResource(R.drawable.pantaloni_sigaretta_tasconi);
 
+        db.addVestito("rosso", 1, "maglia", "avorio", 1, R.drawable.t_shirt_maschio);
+        db.addVestito("giallo", 1, "pantalone", "cacca", 2, R.drawable.pantaloni_sigaretta_tasconi);
+        db.addVestito("arancione", 1, "maglia arancia", "avorio", 1, R.drawable.t_shirt_maschio);
+        db.addVestito("jeans", 1, "pantalone jeans", "cacca", 2, R.drawable.pantaloni_sigaretta_tasconi);
         btnConferma = view.findViewById(R.id.btnConferma);
         btnRifiuta = view.findViewById(R.id.btnRifiuta);
         btnModifica = view.findViewById(R.id.btnModifica);
         btnCrea = view.findViewById(R.id.btnCrea);
         btnArmadio = view.findViewById(R.id.btnArmadio);
+
+        ArrayList<Vestito> id = db.getVestiti("InvernaleFeriale");
+        StringBuilder sb = new StringBuilder();
+        if(id!=null) {
+            for (Vestito v1 : id) {
+                sb.append(v1.getNome());
+                if (v1.getTipoVestito().equals("1"))
+                    imageView.setImageResource(v1.getPic_tag());
+                else if (v1.getTipoVestito().equals("2"))
+                    imageView2.setImageResource(v1.getPic_tag());
+            }
+            Toast.makeText(view.getContext(), sb, Toast.LENGTH_LONG).show();
+        }
 
         btnConferma.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,8 +69,8 @@ public class FragmentOne extends Fragment{
             public void onClick(View v) {
                 Fragment fragmentModificaOutfit = new FragmentModificaOutfit();
                 getFragmentManager().beginTransaction().replace(R.id.container, fragmentModificaOutfit).commit();
-                db.addVestito("rosso", 1, "maglia", "avorio", 1, "ciao");
-                db.addVestito("giallo", 1, "pantalone", "cacca", 2, "ciao");
+                db.addVestito("rosso", 1, "maglia", "avorio", 1, R.drawable.t_shirt_maschio);
+                db.addVestito("giallo", 1, "pantalone", "cacca", 2, R.drawable.pantaloni_sigaretta_tasconi);
             }
         });
 
@@ -64,12 +79,6 @@ public class FragmentOne extends Fragment{
             public void onClick(View v) {
                 Fragment fragmentAddOutfit = new FragmentAddOutfit();
                 getFragmentManager().beginTransaction().replace(R.id.container, fragmentAddOutfit).commit();
-                ArrayList<String> id = db.getVestiti("InvernaleFeriale");
-                StringBuilder sb = new StringBuilder();
-                for(String s : id){
-                    sb.append(s);
-                }
-                Toast.makeText(view.getContext(), sb, Toast.LENGTH_LONG).show();
             }
         });
 
