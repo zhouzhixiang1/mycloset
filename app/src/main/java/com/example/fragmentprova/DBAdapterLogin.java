@@ -223,7 +223,7 @@ public class DBAdapterLogin {
                 boolean abb = false;
                 boolean disp = false;
                 boolean ripie = false;
-                boolean pref = true;
+                boolean pref = false;
 
                 if(eccentrici.size()>0 && pref)
                     ecc = true;

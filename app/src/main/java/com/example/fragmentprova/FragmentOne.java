@@ -34,10 +34,14 @@ public class FragmentOne extends Fragment{
         imageView = view.findViewById(R.id.imageView);
         imageView2 = view.findViewById(R.id.imageView2);
 
-        db.addVestito("rosso", 1, "maglia", "avorio", 1, R.drawable.t_shirt_maschio);
-        db.addVestito("giallo", 1, "pantalone", "cacca", 2, R.drawable.pantaloni_sigaretta_tasconi);
-        db.addVestito("arancione", 1, "maglia arancia", "avorio", 1, R.drawable.t_shirt_maschio);
-        db.addVestito("jeans", 1, "pantalone jeans", "cacca", 2, R.drawable.pantaloni_sigaretta_tasconi);
+        db.addVestito("rosso", 1, "maglia rossa", "avorio", 1, R.drawable.tshirt_red);
+        db.addVestito("giallo", 1, "pantalone", "cacca", 2, R.drawable.trauser_yellow);
+        db.addVestito("arancione", 1, "maglia arancia", "avorio", 1, R.drawable.hoodie_orange);
+        db.addVestito("blu", 1, "pantalone jeans", "cacca", 2, R.drawable.trauser_denim);
+        db.addVestito("blu",1,"maglia verde", "cacca",1, R.drawable.tshirt_denim);
+        db.addVestito("verde",1,"panta verdi","cacca",2, R.drawable.trauser2_olive);
+        db.addVestito("rosso",1, "cardigan red","cacca",1, R.drawable.cardigan_red);
+
         btnConferma = view.findViewById(R.id.btnConferma);
         btnRifiuta = view.findViewById(R.id.btnRifiuta);
         btnModifica = view.findViewById(R.id.btnModifica);
