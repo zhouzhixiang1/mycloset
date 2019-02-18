@@ -18,7 +18,7 @@ h1 {font-family: fantasy;}
 .team-section2 h1{font: size 20px;text-transform: uppercase;display: inline-block;border-bottom: 10px;}
 .pe{float: left;width :calc(100%/5);overflow: hidden;padding: 40px 0; transition: 0.4s;}
 .pe:hover{background:gray;}
-.pe img{width:200px;height: 200px;}
+.pe img{width:200px;height: 200px; border-radius: 20px;}
 .p-name{margin: 16px 0;text-transform: uppercase;font-family: cursive;color:white;}
 .p-des{font-style: italic;color: blue;font-family: "Lucida Console",monospace;}
 
