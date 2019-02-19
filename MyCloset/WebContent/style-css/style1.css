@@ -1,5 +1,5 @@
 /*---------------brand--------------*/
-body{ margin:0; padding:0; background-image: url("../imagenes/photo.jpg") ;background-size:cover;}
+body{ margin:0; padding:0; background-image: url("../imagenes/brand1.jpg") ;background-size:contain;}
 
 /*---------------mission-vision--------------*/
 *{margin:0;padding:0;font-family: sans-serif;}
