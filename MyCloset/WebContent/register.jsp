@@ -10,14 +10,14 @@
 
 <div class="login-page">
         <div class="form">
-            <form class="register-form">
-                <input type="text" placeholder="Nome">
-                <input type="text" placeholder="Cognome">
-                <input type="number" placeholder="Età ">
-                <input type="text" placeholder="Sesso">
-                <input type="text" placeholder="Inserire e-mail">
-                <input type="password" placeholder="inserire password">
-                <input type="password" placeholder="confermare password">
+            <form class="register-form" action="loginRegister">
+                <input type="text" name="username" placeholder="Nome">
+                <input type="text" name="cognome"placeholder="Cognome">
+                <input type="number" name="eta"placeholder="Età ">
+                <input type="text" name="sesso" placeholder="Sesso">
+                <input type="text" name="email" placeholder="Inserire e-mail">
+                <input type="password" name="password1" placeholder="inserire password">
+                <input type="password" name="password2" placeholder="confermare password">
                 <button>Create</button>
                 <div>
                     <p><a href="index.html?openLogin=true#secondoNav">Hai già  un account?</a></p>

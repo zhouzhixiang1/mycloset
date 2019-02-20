@@ -19,7 +19,7 @@
 		<form method="post" action="LoginCheck"><!-- LoginRegister -->
 			<label>Username</label>
 			<div>
-				<input type="text" name="uname" placeholder="" required /> <!-- name -->
+				<input type="text" name="uname" placeholder="" required /> <!-- username -->
 			</div>
 			<label>Password</label>
 			<div>
