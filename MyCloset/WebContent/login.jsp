@@ -11,22 +11,22 @@
 	<aside class="menu">
 		<div class="menu-content">
 			<i class="fa fa-unlock-alt"></i><a href="#" id="login">login</a> | <i
-				class="fa fa-user"></i><a href="registration.html">Register</a>
+				class="fa fa-user"></i><a href="register.jsp">Register</a>
 		</div>
 		<div class="arrow-up"></div>
 	</aside>
 	<div class="login-form">
-		<form method="post" action="LoginCheck">
+		<form method="post" action="LoginCheck"><!-- LoginRegister -->
 			<label>Username</label>
 			<div>
-				<input type="text" name="uname" placeholder="" required />
+				<input type="text" name="uname" placeholder="" required /> <!-- name -->
 			</div>
 			<label>Password</label>
 			<div>
 				<input type="password" name="password" placeholder="" required />
 			</div>
 			<div>
-				<input type="submit" value="Log In" />
+				<input type="submit" name="submit"value="Log In" /><!-- login -->
 			</div>
 			<div>
 				<a href="psw-recovery.html"
