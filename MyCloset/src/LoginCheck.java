@@ -36,7 +36,7 @@ public class LoginCheck extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String uname = request.getParameter("uname");
 		String password = request.getParameter("password");
-		if(uname.equals("java")&& password.equals("1234"))
+		if(uname.equals("Pedro")&& password.equals("1234"))
 		{
 			response.sendRedirect("member.jsp");
 		}
