@@ -94,14 +94,14 @@
 				<div class="arrow-up"></div>
 			</aside>
 			<div class="login-form">
-				<form>
+				<form id="formLogin" action="http://localhost:8080/esempio/mvc/loginUtente" method="post">
 					<label>Username</label>
 					<div>
-						<input type="text" placeholder="" required />
+						<input type="email" class="form-control" id="mailUtente" name="mailUtente" aria-describedby="emailHelp" placeholder="inserisci email">
 					</div>
 					<label>Password</label>
 					<div>
-						<input type="password" placeholder="" required />
+				  		<input type="password" class="form-control" id="passwordUtente" name="passwordUtente" placeholder="inserisci Password">
 					</div>
 					<div>
 						<input type="submit" value="Log In" />
