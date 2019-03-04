@@ -59,4 +59,4 @@ body {padding-top: 3rem;padding-bottom: 3rem;color: #5a5a5a;}
 	
 	/*---------copyright------*/
 
-	.copyright{padding:30px;position: relative;left: 0;bottom: 0;width: 100%;background: rgb(49, 43, 43);color: white;text-align: center;border-top: 1px solid #333;}
+	.copyright{padding:30px;position: relative;left: 0;bottom: 0;width: 100%;background: rgb(49, 43, 43);color: white;text-align: center;border-top: 1px solid #333;margin-bottom: -50px;}
