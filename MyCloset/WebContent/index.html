@@ -164,8 +164,6 @@
 			</div>
 		</div>
 	</div>
-	
-	<a href="#su"><button style="position: relative ; top:40px; background: rgb(54, 0, 0);border: none;"type="button" class="btn btn-primary btn-lg btn-block">Torna su</button></a>
 
 <!--navbar footer -->
 <footer style="margin-top: 50px">
@@ -197,6 +195,28 @@
 	</nav>
 	<!--copyright-->
 	<div class="copyright">&#169 copyright MyCloset.com </div>
+	
+	<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+
+<script>
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("myBtn").style.display = "block";
+  } else {
+    document.getElementById("myBtn").style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+</script>
+
 </footer>
 <!-- script js a fine pagina -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
