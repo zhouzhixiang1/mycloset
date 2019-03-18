@@ -1,6 +1,6 @@
 h1 {text-align: center;font-size: 60px; margin-top:60px;}
 
-body {background-image: url("../imagenes/chuttersnap-1306542-unsplash.jpg");background-size:cover;background-repeat:no-repeat}
+body {background-color: white;}
 
 .container {max-width: 60%; margin: 0 auto;padding: 70px 0 20px; width: 100%;}
 .acc h3 {font-size: 25px;background-color: #D2691E;padding: 15px; margin: 0;cursor: pointer;font-family: "Comic Sans MS", cursive, sans-serif; letter-spacing: 1px;position: relative;}
