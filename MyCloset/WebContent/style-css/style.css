@@ -38,7 +38,7 @@
 	
 	/*---------corpo del sito------*/
 
-	.animated{position: relative;top:23px;margin-left: 34%;margin-right:44%;margin-bottom: 30px;font-weight:300;font-size: 40px;letter-spacing: 2ch;}
+	.animated{position: relative;top:23px;margin-left: 34%;margin-right:44%;margin-bottom: 30px;font-weight:300;font-size: 40px;letter-spacing: 2ch;z-index: -1;}
 
 	.row{position: relative; width: 100%; top: 30px;height: 835px; left: 0%;right: 0%; text-align: center; z-index: -1;}
 	.closetMainRow { margin-right: 0px;  margin-left: 0px;}
