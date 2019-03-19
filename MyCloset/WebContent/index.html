@@ -11,269 +11,283 @@
 		integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
 		integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-	<link rel="stylesheet" href="style-css\style.css">
-</head>
 
-<body>
-	<div></div>
-	<header>
-		<!--prima navbar con bs-->
-		<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-			<a class="navbar-brand" href="index.html"><img src="imagenes/logo.png"
-					style="width: 35px; position:relative;left:100px;"></a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-				aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-				<div class="navbar-nav" style="padding-left:10%;">
-					<a class="nav-item nav-link" href="seconda.html">Brand</a>
-					<a class="nav-item nav-link" href="prototipo.html">Prototipo</a>
-					<a class="nav-item nav-link" href="faq.html">FAQ</a>
-					<a class="nav-item nav-link" href="download.html">Download</a>
+	<head>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 
+		<head>
+			<link rel="stylesheet" href="style-css\style.css">
+		</head>
+
+	<body>
+		<div></div>
+		<header>
+			<!--prima navbar con bs-->
+			<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+				<a class="navbar-brand" href="index.html"><img src="imagenes/logo.png"
+						style="width: 35px; position:relative;left:100px;"></a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+					aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+					<div class="navbar-nav" style="padding-left:10%;">
+						<a class="nav-item nav-link" href="seconda.html">Brand</a>
+						<a class="nav-item nav-link" href="prototipo.html">Prototipo</a>
+						<a class="nav-item nav-link" href="faq.html">FAQ</a>
+						<a class="nav-item nav-link" href="download.html">Download</a>
+
+					</div>
 				</div>
+			</nav>
+
+			<!-- bs carousel -->
+			<div id="carousel" class="carousel slide" data-ride="carousel">
+				<ol class="carousel-indicators">
+					<li data-target="#carousel" data-slide-to="0" class="active"></li>
+					<li data-target="#carousel" data-slide-to="1"></li>
+					<li data-target="#carousel" data-slide-to="2"></li>
+					<li data-target="#carousel" data-slide-to="3"></li>
+					<li data-target="#carousel" data-slide-to="4"></li>
+					<li data-target="#carousel" data-slide-to="5"></li>
+					<li data-target="#carousel" data-slide-to="6"></li>
+					<li data-target="#carousel" data-slide-to="7"></li>
+				</ol>
+				<div class="carousel-inner">
+					<div class="carousel-item active">
+						<img class="d-block w-100" src="imagenes/carrousel-1.jpg" alt="First slide">
+					</div>
+					<div class="carousel-item">
+						<img class="d-block w-100" src="imagenes/carrousel-2.jpg" alt="Second slide">
+					</div>
+					<div class="carousel-item">
+						<img class="d-block w-100" src="imagenes/carrousel-3.jpg" alt="Third slide">
+					</div>
+					<div class="carousel-item">
+						<img class="d-block w-100" src="imagenes/1.jpg" alt="Fourth slide">
+					</div>
+					<div class="carousel-item">
+						<img class="d-block w-100" src="imagenes/2.jpg" alt="Fifth slide">
+					</div>
+					<div class="carousel-item">
+						<img class="d-block w-100" src="imagenes/3.jpg" alt="Sixth slide">
+					</div>
+					<div class="carousel-item">
+						<img class="d-block w-100" src="imagenes/carrousel-4.jpg" alt="Seventh slide">
+					</div>
+					<div class="carousel-item">
+						<img class="d-block w-100" src="imagenes/carrousel_5.jpg" alt="Eighth slide">
+					</div>
+				</div>
+				<a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					<span class="sr-only">Previous</span>
+				</a>
+				<a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+					<span class="sr-only">Next</span>
+				</a>
 			</div>
+		</header>
+		<!--Seconda navbar con search e login/registration-->
+		<nav class="secondo-nav" id="secondoNav">
+			<section class="nav-container">
+				<aside class="logo">
+					<div class="search-box">
+						<input class="search-txt" type="search" name="" placeholder="Type to search">
+						<a class="search-btn" href="#">
+							<i class="fas fa-search"></i>
+						</a>
+					</div>
+				</aside>
+				<!--Form-->
+				<aside class="menu">
+					<div class="menu-content">
+						<i class="fa fa-unlock-alt"></i><a href="#" id="login">login</a> | <i class="fa fa-user"></i><a
+							href="registration.html">Register</a>
+					</div>
+					<div class="arrow-up"></div>
+				</aside>
+				<div class="login-form">
+					<form id="formLogin" action="http://localhost:8080/esempio/mvc/loginUtente" method="post">
+						<label>Username</label>
+						<div>
+							<input type="email" class="form-control" id="mailUtente" name="mailUtente"
+								aria-describedby="emailHelp" placeholder="inserisci email">
+						</div>
+						<label>Password</label>
+						<div>
+							<input type="password" class="form-control" id="passwordUtente" name="passwordUtente"
+								placeholder="inserisci Password">
+						</div>
+						<div>
+							<input type="submit" value="Log In" />
+						</div>
+						<div>
+							<a href="psw-recovery.html"
+								style="text-decoration:none;position:relative; top:20px;font-size:16px;color:gray;">Lost
+								your password?</a>
+						</div>
+					</form>
+				</div>
+			</section>
 		</nav>
+		<!--corpo del sito-->
 
-		<!-- bs carousel -->
-		<div id="carousel" class="carousel slide" data-ride="carousel">
-			<ol class="carousel-indicators">
-				<li data-target="#carousel" data-slide-to="0" class="active"></li>
-				<li data-target="#carousel" data-slide-to="1"></li>
-				<li data-target="#carousel" data-slide-to="2"></li>
-				<li data-target="#carousel" data-slide-to="3"></li>
-				<li data-target="#carousel" data-slide-to="4"></li>
-				<li data-target="#carousel" data-slide-to="5"></li>
-				<li data-target="#carousel" data-slide-to="6"></li>
-				<li data-target="#carousel" data-slide-to="7"></li>
-			</ol>
-			<div class="carousel-inner">
-				<div class="carousel-item active">
-					<img class="d-block w-100" src="imagenes/carrousel-1.jpg" alt="First slide">
-				</div>
-				<div class="carousel-item">
-					<img class="d-block w-100" src="imagenes/carrousel-2.jpg" alt="Second slide">
-				</div>
-				<div class="carousel-item">
-					<img class="d-block w-100" src="imagenes/carrousel-3.jpg" alt="Third slide">
-				</div>
-				<div class="carousel-item">
-					<img class="d-block w-100" src="imagenes/1.jpg" alt="Fourth slide">
-				</div>
-				<div class="carousel-item">
-					<img class="d-block w-100" src="imagenes/2.jpg" alt="Fifth slide">
-				</div>
-				<div class="carousel-item">
-					<img class="d-block w-100" src="imagenes/3.jpg" alt="Sixth slide">
-				</div>
-				<div class="carousel-item">
-					<img class="d-block w-100" src="imagenes/carrousel-4.jpg" alt="Seventh slide">
-				</div>
-				<div class="carousel-item">
-					<img class="d-block w-100" src="imagenes/carrousel_5.jpg" alt="Eighth slide">
-				</div>
-			</div>
-			<a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
-				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-				<span class="sr-only">Previous</span>
-			</a>
-			<a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
-				<span class="carousel-control-next-icon" aria-hidden="true"></span>
-				<span class="sr-only">Next</span>
-			</a>
-		</div>
-	</header>
-	<!--Seconda navbar con search e login/registration-->
-	<nav class="secondo-nav" id="secondoNav">
-		<section class="nav-container">
-			<aside class="logo">
-				<div class="search-box">
-					<input class="search-txt" type="search" name="" placeholder="Type to search">
-					<a class="search-btn" href="#">
-						<i class="fas fa-search"></i>
-					</a>
-				</div>
-			</aside>
-			<!--Form-->
-			<aside class="menu">
-				<div class="menu-content">
-					<i class="fa fa-unlock-alt"></i><a href="#" id="login">login</a> | <i class="fa fa-user"></i><a
-						href="registration.html">Register</a>
-				</div>
-				<div class="arrow-up"></div>
-			</aside>
-			<div class="login-form">
-				<form id="formLogin" action="http://localhost:8080/esempio/mvc/loginUtente" method="post">
-					<label>Username</label>
-					<div>
-						<input type="email" class="form-control" id="mailUtente" name="mailUtente"
-							aria-describedby="emailHelp" placeholder="inserisci email">
-					</div>
-					<label>Password</label>
-					<div>
-						<input type="password" class="form-control" id="passwordUtente" name="passwordUtente"
-							placeholder="inserisci Password">
-					</div>
-					<div>
-						<input type="submit" value="Log In" />
-					</div>
-					<div>
-						<a href="psw-recovery.html"
-							style="text-decoration:none;position:relative; top:20px;font-size:16px;color:gray;">Lost
-							your password?</a>
-					</div>
-				</form>
-			</div>
-		</section>
-	</nav>
-	<!--corpo del sito-->
-	<div class="row closetMainRow">
-		<div class="col-sm" style="background-color:rgb(177, 114, 112);">
-			<div style="position:relative;top:20px;">
-				<h4>Closet</h4>
-			</div>
-			<div style="position: relative;top:40px;"><img src="imagenes/closet.png" style="width: 250px;"></div>
-			<p style="position: relative;top:90px;width: 80%;line-height: 25px;margin: auto;">
-				MyCloset è un'app per Android che può essere scaricata gratuitamente ed è stata creata pensando
-				Con l'app puoi interagire facilmente con il tuo armadio in casa utilizzando gli strumenti per ordinare
-				rapidamente
-				i propri vestiti.
-				MyCloset è un'app per Android che può essere scaricata gratuitamente ed è stata creata pensando
-				Con l'app puoi interagire facilmente con il tuo armadio in casa utilizzando gli strumenti per ordinare
-				rapidamente
-				i propri vestiti.i.
-			</p>
-		</div>
-		<div class="col-sm" style="background-color:#c0c0c0;">
-			<h4 style="position:relative;top:20px;">Accesso</h4>
-			<div style="position: relative;top:40px;"><img src="imagenes/accesso.png" style="width: 250px;"></div>
-			<p style="position: relative;top:90px;width: 80%;line-height: 25px;margin: auto;">
-				MyCloset è un'app per Android che può essere scaricata gratuitamente ed è stata creata pensando
-				Con l'app puoi interagire facilmente con il tuo armadio in casa utilizzando gli strumenti per ordinare
-				rapidamente
-				i propri vestiti.
-				MyCloset è un'app per Android che può essere scaricata gratuitamente ed è stata creata pensando
-				Con l'app puoi interagire facilmente con il tuo armadio in casa utilizzando gli strumenti per ordinare
-				rapidamente
-				i propri vestiti.i.
-			</p>
-		</div>
-	</div>
+		<div class="animation"><h3 class="so">StyleOut</h3 ></div>
+		
 
-	<div class="row closetMainRow2">
-		<div class="col-sm" style="background-color:rgb(228, 226, 226);">
-			<p style="position: relative;top:40%;width: 100%;line-height: 25px;z-index: +1; left:24%;">
-				MyCloset è un'app per Android che può essere scaricata gratuitamente ed è stata creata pensando
-				Con l'app puoi interagire facilmente con il tuo armadio in casa utilizzando gli strumenti per ordinare
-				rapidamente
-				i propri vestiti.
-				MyCloset è un'app per Android che può essere scaricata gratuitamente ed è stata creata pensando
-			</p>
-		</div>
-		<div class="col-sm" style="background-color:rgb(228, 226, 226);padding-right: 0%;">
-			<div style="position: relative;top:40px;">
-				<img src="imagenes/hanger.png" class="img">
+		<div class="row closetMainRow">
+			<div class="col-sm" style="background-color:rgb(177, 114, 112);">
+				<div style="position:relative;top:20px;">
+					<h4>Closet</h4>
+				</div>
+				<div style="position: relative;top:40px;"><img src="imagenes/closet.png" style="width: 250px;"></div>
+				<p style="position: relative;top:90px;width: 80%;line-height: 25px;margin: auto;">
+					MyCloset è un'app per Android che può essere scaricata gratuitamente ed è stata creata pensando
+					Con l'app puoi interagire facilmente con il tuo armadio in casa utilizzando gli strumenti per
+					ordinare
+					rapidamente
+					i propri vestiti.
+					MyCloset è un'app per Android che può essere scaricata gratuitamente ed è stata creata pensando
+					Con l'app puoi interagire facilmente con il tuo armadio in casa utilizzando gli strumenti per
+					ordinare
+					rapidamente
+					i propri vestiti.i.
+				</p>
+			</div>
+			<div class="col-sm" style="background-color:#c0c0c0;">
+				<h4 style="position:relative;top:20px;">Accesso</h4>
+				<div style="position: relative;top:40px;"><img src="imagenes/accesso.png" style="width: 250px;"></div>
+				<p style="position: relative;top:90px;width: 80%;line-height: 25px;margin: auto;">
+					MyCloset è un'app per Android che può essere scaricata gratuitamente ed è stata creata pensando
+					Con l'app puoi interagire facilmente con il tuo armadio in casa utilizzando gli strumenti per
+					ordinare
+					rapidamente
+					i propri vestiti.
+					MyCloset è un'app per Android che può essere scaricata gratuitamente ed è stata creata pensando
+					Con l'app puoi interagire facilmente con il tuo armadio in casa utilizzando gli strumenti per
+					ordinare
+					rapidamente
+					i propri vestiti.i.
+				</p>
 			</div>
 		</div>
-	</div>
 
-	<!--navbar footer -->
-	<footer style="margin-top: 50px">
-		<nav class="nav">
-			<ul>
-				<li>
-					<ul>
-						<li><a href="#">StyleOut</a></li>
-						<li><a href="features.html">Features</a></li>
-						<!--<li><a href="#">Help</a></li>-->
-					</ul>
-				</li>
-				<li>
-					<ul>
-						<li><a href="download.html">Download</a></li>
-						<li><a href="download.html?#android">Android</a></li>
-						<!--<li><a href="#"></a></li>-->
+		<div class="row closetMainRow2">
+			<div class="col-sm" style="background-color:rgb(228, 226, 226);">
+				<p style="position: relative;top:40%;width: 100%;line-height: 25px;z-index: +1; left:24%;">
+					MyCloset è un'app per Android che può essere scaricata gratuitamente ed è stata creata pensando
+					Con l'app puoi interagire facilmente con il tuo armadio in casa utilizzando gli strumenti per
+					ordinare
+					rapidamente
+					i propri vestiti.
+					MyCloset è un'app per Android che può essere scaricata gratuitamente ed è stata creata pensando
+				</p>
+			</div>
+			<div class="col-sm" style="background-color:rgb(228, 226, 226);padding-right: 0%;">
+				<div style="position: relative;top:40px;">
+					<img src="imagenes/hanger.png" class="img">
+				</div>
+			</div>
+		</div>
 
-					</ul>
-				</li>
-				<li>
-					<ul>
-						<li><a href="faq.html">FAQ</a></li>
-						<li><a href="https://www.twitter.com/myclose58459259">Twitter</a></li>
-						<li><a href="https://www.facebook.com/my.closet.1257">Facebook</a></li>
-					</ul>
-				</li>
-			</ul>
-		</nav>
-		<!--copyright-->
-		<div class="copyright">&#169 copyright StyleOut.com </div>
+		<!--navbar footer -->
+		<footer style="margin-top: 50px">
+			<nav class="nav">
+				<ul>
+					<li>
+						<ul>
+							<li><a href="#">StyleOut</a></li>
+							<li><a href="features.html">Features</a></li>
+							<!--<li><a href="#">Help</a></li>-->
+						</ul>
+					</li>
+					<li>
+						<ul>
+							<li><a href="download.html">Download</a></li>
+							<li><a href="download.html?#android">Android</a></li>
+							<!--<li><a href="#"></a></li>-->
 
-		<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+						</ul>
+					</li>
+					<li>
+						<ul>
+							<li><a href="faq.html">FAQ</a></li>
+							<li><a href="https://www.twitter.com/myclose58459259">Twitter</a></li>
+							<li><a href="https://www.facebook.com/my.closet.1257">Facebook</a></li>
+						</ul>
+					</li>
+				</ul>
+			</nav>
+			<!--copyright-->
+			<div class="copyright">&#169 copyright StyleOut.com </div>
 
-		<script>
-			// When the user scrolls down 20px from the top of the document, show the button
-			window.onscroll = function () { scrollFunction() };
+			<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 
-			function scrollFunction() {
-				if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-					document.getElementById("myBtn").style.display = "block";
-				} else {
-					document.getElementById("myBtn").style.display = "none";
+			<script>
+				// When the user scrolls down 20px from the top of the document, show the button
+				window.onscroll = function () { scrollFunction() };
+
+				function scrollFunction() {
+					if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+						document.getElementById("myBtn").style.display = "block";
+					} else {
+						document.getElementById("myBtn").style.display = "none";
+					}
 				}
-			}
 
-			// When the user clicks on the button, scroll to the top of the document
-			function topFunction() {
-				document.body.scrollTop = 0;
-				document.documentElement.scrollTop = 0;
-			}
-		</script>
+				// When the user clicks on the button, scroll to the top of the document
+				function topFunction() {
+					document.body.scrollTop = 0;
+					document.documentElement.scrollTop = 0;
+				}
+			</script>
 
-	</footer>
-	<!-- script js a fine pagina -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
-		integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
-		crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
-		integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
-		crossorigin="anonymous"></script>
-	<script type="text/javascript" charset="utf-8">
-		var arrow;
-		var form;
-		var status = 'false';
+		</footer>
+		<!-- script js a fine pagina -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+			integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+			crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+			integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+			crossorigin="anonymous"></script>
+		<script type="text/javascript" charset="utf-8">
+			var arrow;
+			var form;
+			var status = 'false';
 
-		function qs(key) {
-			key = key.replace(/[*+?^$.\[\]{}()|\\\/]/g, "\\$&"); // escape RegEx meta chars
-			var match = location.search.match(new RegExp("[?&]" + key + "=([^&]+)(&|$)"));
-			return match && decodeURIComponent(match[1].replace(/\+/g, " "));
-		}
-		function showLogin(s) {
-			if (s == 'false') {
-				arrow.fadeIn();
-				form.fadeIn();
-				this.status = 'true';
-			} else {
-				arrow.fadeOut();
-				form.fadeOut();
-				this.status = 'false';
-			};
-		}
-		$(() => {
-			arrow = $(".arrow-up");
-			form = $(".login-form");
-			let openLogin = qs('openLogin');
-			if (openLogin) {
-				showLogin('false'); // accendo il login
+			function qs(key) {
+				key = key.replace(/[*+?^$.\[\]{}()|\\\/]/g, "\\$&"); // escape RegEx meta chars
+				var match = location.search.match(new RegExp("[?&]" + key + "=([^&]+)(&|$)"));
+				return match && decodeURIComponent(match[1].replace(/\+/g, " "));
 			}
-			$("#login").click(function (e) {
-				e.preventDefault();
-				location.href = '#secondoNav';
-				showLogin(status);
+			function showLogin(s) {
+				if (s == 'false') {
+					arrow.fadeIn();
+					form.fadeIn();
+					this.status = 'true';
+				} else {
+					arrow.fadeOut();
+					form.fadeOut();
+					this.status = 'false';
+				};
+			}
+			$(() => {
+				arrow = $(".arrow-up");
+				form = $(".login-form");
+				let openLogin = qs('openLogin');
+				if (openLogin) {
+					showLogin('false'); // accendo il login
+				}
+				$("#login").click(function (e) {
+					e.preventDefault();
+					location.href = '#secondoNav';
+					showLogin(status);
+				});
 			});
-		});
-	</script>
-</body>
+		</script>
+	</body>
 
 </html>
