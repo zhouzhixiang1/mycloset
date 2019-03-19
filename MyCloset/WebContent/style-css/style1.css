@@ -1,13 +1,13 @@
 /*---------------brand--------------*/
-body{ margin:0; padding:0; background-image: url("../imagenes/brand1.jpg") ;background-size:contain; }
+body{ background: rgb(228, 226, 226); }
 
 /*---------------mission-vision--------------*/
 *{margin:0;padding:0;font-family: sans-serif;}
 .team-section{text-align: center;height: 50%;margin-top:150px;margin-bottom:150px;}
 .team-section__image1{width: 50%; float: left;height: 100%;background-image: url("../imagenes/mission.jpg");background-size: cover;border-radius:20px ; border-radius:20px ; border-top: 3px solid black;border-left: 3px solid black;border-bottom: 3px solid black;}
 .team-section__image2{width: 50%; float: right;height:100%;background-image: url("../imagenes/vision.jpg");background-size: cover;border-radius:20px ; border-top: 3px solid black;border-right: 3px solid black;border-bottom: 3px solid black;}
-.team-section{text-transform: uppercase;margin-bottom: 60px;color: white;}
-.team-section__copy{width:50%; float: left;height: 100%;display: table;color:white;border-radius:20px ; border: 3px solid black;}
+.team-section{text-transform: uppercase;margin-bottom: 60px;color: black;}
+.team-section__copy{width:50%; float: left;height: 100%;display: table;color:black;border-radius:20px ; border: 3px solid black;}
 .team-section__copy__text{display: table-cell; vertical-align: middle;padding: 30px;}
 .border{display:block;margin:auto;width:160px;height: 3px;background:#3498db;margin-bottom: 40px;}
 h4 {font-family: "Comic Sans MS", cursive, sans-serif;}
@@ -19,7 +19,7 @@ h1 {font-family: fantasy;}
 .pe{float: left;width :calc(100%/5);overflow: hidden;padding: 40px 0; transition: 0.4s;}
 .pe:hover{background:gray;}
 .pe img{width:200px;height: 200px; border-radius: 20px;}
-.p-name{margin: 16px 0;text-transform: uppercase;font-family: cursive;color:white;}
+.p-name{margin: 16px 0;text-transform: uppercase;font-family: cursive;color:black;}
 .p-des{font-style: italic;color: blue;font-family: "Lucida Console",monospace;}
 
  /*---------------footer--------------*/
@@ -33,7 +33,7 @@ h1 {font-family: fantasy;}
 
 
 
-@media(max-width:900px){
+@media(max-width:767px){
 
   .team-section{height: 100%;}
   .team-section__image1,
