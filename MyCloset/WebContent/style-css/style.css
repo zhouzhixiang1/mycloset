@@ -1,6 +1,6 @@
 	/*----------home----------*/
 	
-	body{ margin:0; padding:0;position:relative;background: rgb(228, 226, 226);width: fit-content;}
+	body{ margin:0; padding:0;position:relative;background:white;width: fit-content;}
 	img.d-block.w-100 {margin-top: 60px;}
 	
 	/*---------search------*/
@@ -38,7 +38,7 @@
 	
 	/*---------corpo del sito------*/
 
-	.animated{position: relative;top:23px;margin-left: 34%;margin-right:44%;margin-bottom: 30px;font-weight:300;font-size: 40px;letter-spacing: 2ch;z-index: -1;}
+	.animated{position: relative;top:23px;margin-bottom: 30px;font-weight:300;font-size: 40px;letter-spacing: 2ch;z-index: -1;text-align: center;}
 
 	.row{position: relative; width: 100%; top: 30px;height: 835px; left: 0%;right: 0%; text-align: center; z-index: -1;}
 	.closetMainRow { margin-right: 0px;  margin-left: 0px;}
