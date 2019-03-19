@@ -5,6 +5,10 @@ body{background: rgb(228, 226, 226);}
 .row{position: relative; width: 70%; top: 30px; left: 15%;  text-align: justify; letter-spacing: 1px;background:white}
 .cell{position:relative; width: 80%;height:95%;margin: 0 auto 0px;padding: 0px;}
 
+.and{position:relative; top: 20%;margin-bottom: 20%;}
+.display-1{position:relative;left: 10%;}
+.display-7{position:relative;left:10%;}
+
 /*-----------navbar footer------------*/
 
 .nav{background: rgb(49, 43, 43); height:200px; width: 100%; position: relative;border-top: 1px solid #333;}
