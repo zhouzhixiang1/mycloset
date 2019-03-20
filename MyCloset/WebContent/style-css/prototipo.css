@@ -2,16 +2,17 @@ body{background: rgb(228, 226, 226);}
 
 /*----------animazione per il tutorial----------*/
 
-#animate{position: relative;width: 500px;margin: 30 auto 10px;padding: 5px;text-align:center;bottom:5px;}
-#animate2{position: relative;width: 800px;margin: 10 auto 10px;padding: 20px;text-align:center;}
-h1#animate {margin-top: 60px;}
+.animated{position: relative;width: 500px;margin: 30 auto 10px;padding: 5px;text-align:center;top:40px;font-weight:300;}
+#style{text-align:center;letter-spacing: 1ch;}
+
 /*----------video----------*/
 
 .div-yt{position: relative;width: 800px;margin: 50 auto 26px;padding: 0px;text-align:center;}
 
 /*----------download con bs----------*/
 
-.jumbotron{background: rgb(228, 226, 226);width: 800px;margin: 10 auto 10px;padding: 10px;text-align:center;}
+.jumbotron{background: rgb(228, 226, 226);width: 800px;margin: 10 auto 10px;padding: 75px;text-align:center;top:50px;}
+.lead1{font-weight:600;}
 
 /*----------navbar footer----------*/
 .nav{background: rgb(49, 43, 43); height:200px; width: 100%; position: relative;border-top: 1px solid #333;}
