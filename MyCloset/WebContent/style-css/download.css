@@ -9,7 +9,8 @@ body{background: rgb(228, 226, 226);}
 .display-1{position:relative;left: 10%;}
 .display-7{position:relative;left:10%;}
 
-/*.images{display: none; top:50%;}*/
+.images{display: none;}
+.js{position:relative; left:10%;}
 
 /*-----------navbar footer------------*/
 
